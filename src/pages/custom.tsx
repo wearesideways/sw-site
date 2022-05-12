@@ -2,9 +2,8 @@ import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import { SocialList } from "../components/SocialList";
 
-export default function Index() {
+export default function Custom() {
   return (
     <Layout>
       <BasicMeta url={"/"} />
@@ -12,13 +11,10 @@ export default function Index() {
       <TwitterCardMeta url={"/"} />
       <div className="container">
         <div>
-            Modifying index
+            Custom page
           <h1>
             Hi, We're Next.js & Netlify<span className="fancy">.</span>
           </h1>
-          <span className="handle">@nextjs-netlify-blog</span>
-          <h2>A blog template with Next.js and Netlify.</h2>
-          <SocialList />
         </div>
       </div>
       <style jsx>{`
