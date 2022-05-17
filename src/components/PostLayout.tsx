@@ -220,7 +220,7 @@ export default function PostLayout({
               .token.tag
               .token.attr-value
               .token.punctuation:not(:first-child) {
-              color: #032f62;
+              color: red;
             }
 
             /* CSS */
