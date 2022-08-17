@@ -1,16 +1,19 @@
 {
-  "base_url": "https://net-sw-test.netlify.app",
-  "site_title": "Sideways Test Website",
-  "site_description": "Sideways Test Website Description with Netlify",
+  "base_url": "https://sw-site.netlify.app",
+  "site_title": "Sideways | Digital Branding & Creative Agency in NYC",
+  "site_description": "Sideways is a digital-first branding and creative agency. Our hospitality and lifestyle expertise deeply influences our ability to differentiate your brand.",
   "site_keywords": [
     {
-      "keyword": "Next.js"
+      "keyword": "Branding"
     },
     {
-      "keyword": "Netlify"
+      "keyword": "Creative"
     },
     {
-      "keyword": "React"
+      "keyword": "Hospitality"
+    },
+    {
+      "keyword": "Lifestyle"
     }
   ],
   "posts_per_page": 5,
