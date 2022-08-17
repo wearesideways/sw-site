@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: jaimeglez/net-sw-test
+  repo: wearesideways/sw-site
   branch: master
 media_folder: public/images
 public_folder: /images
