@@ -200,6 +200,6 @@ collections:
         media_library:
           config:
             multiple: true
-      - label: "Body"
-        name: "body"
+      - label: "Content"
+        name: "content"
         widget: "markdown"
