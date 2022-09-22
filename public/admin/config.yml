@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   repo: wearesideways/sw-site
   branch: master
+  api_root: https://api.github.com
+  base_url: https://sw-site.pages.dev
+  auth_endpoint: auth
   site_domain: cms.netlify.com
 media_folder: public/images
 public_folder: /images
