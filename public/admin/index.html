@@ -22,6 +22,7 @@
       const outputText = document.getElementById('output')
 
       const initCms = () => {
+        console.log('logged in??')
         CMS.registerPreviewStyle(
                 "https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap"
         );
@@ -45,7 +46,7 @@
       anchorTag.addEventListener('click', (e) => {
         e.preventDefault()
 
-        const authenticator = new netlify.default ({})
+        const authenticator = new netlify.default ({site_id: "5789d0b0-562e-4042-9d4e-c070b59e003f"})
 
         authenticator.authenticate({provider:"github", scope: "user"}, (err, data) => {
           err ? outputText.innerText = "Error Authenticating with GitHub: " + err : initCms()
