@@ -32,3 +32,11 @@ yarn-error.log*
 
 # mdx
 .mdx-data
+
+# .idea
+.idea/workspace.xml
+.idea/jsLibraryMappings.xml
+.idea/sqlDataSources.xml
+.idea/dbnavigator.xml
+.idea/misc.xml
+.idea/git_toolbox_prj.xml
