@@ -1,4 +1,4 @@
-export async function onRequest(context) {
+export const onRequest: PagesFunction<{ GITHUB_CLIENT_ID: string }> = (context) => {
   const {
     request, // same as existing Worker API
     env, // same as existing Worker API
@@ -6,7 +6,7 @@ export async function onRequest(context) {
     waitUntil, // same as ctx.waitUntil in existing Worker API
     next, // used for middleware or to fetch assets
     data, // arbitrary space for passing data between middlewares
-  } = context;
+  } = context
 
   const client_id = env.GITHUB_CLIENT_ID
 
@@ -16,15 +16,11 @@ export async function onRequest(context) {
     redirectUrl.searchParams.set('client_id', client_id)
     redirectUrl.searchParams.set('redirect_uri', url.origin + '/api/callback')
     redirectUrl.searchParams.set('scope', 'repo user')
-    redirectUrl.searchParams.set(
-      'state',
-      crypto.getRandomValues(new Uint8Array(12)).join(''),
-    )
+    redirectUrl.searchParams.set('state', crypto.getRandomValues(new Uint8Array(12)).join(''))
     return Response.redirect(redirectUrl.href, 301)
-
   } catch (error) {
     console.error(error)
-    return new Response(error.message, {
+    return new Response(error instanceof Error ? error.message : 'Unexpected error', {
       status: 500,
     })
   }

@@ -1,13 +1,25 @@
-import config from "../../config.json";
+const config = {
+  base_url: 'https://sw-site.netlify.app',
+  site_title: 'Sideways | Digital Branding & Creative Agency in NYC',
+  site_description:
+    'Sideways is a digital-first branding and creative agency. Our hospitality and lifestyle expertise deeply influences our ability to differentiate your brand.',
+  site_keywords: [
+    {
+      keyword: 'Branding',
+    },
+    {
+      keyword: 'Creative',
+    },
+    {
+      keyword: 'Hospitality',
+    },
+    {
+      keyword: 'Lifestyle',
+    },
+  ],
+  posts_per_page: 5,
+  twitter_account: '@sideways-nyc',
+  github_account: 'wearesideways',
+}
 
-type Config = {
-  readonly base_url: string;
-  readonly site_title: string;
-  readonly site_description: string;
-  readonly site_keywords: { keyword: string }[];
-  readonly posts_per_page: number;
-  readonly twitter_account: string;
-  readonly github_account: string;
-};
-
-export default config as Config;
+export default config

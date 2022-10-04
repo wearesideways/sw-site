@@ -1,19 +1,19 @@
-import Layout from "../components/Layout";
-import BasicMeta from "../components/meta/BasicMeta";
-import OpenGraphMeta from "../components/meta/OpenGraphMeta";
-import TwitterCardMeta from "../components/meta/TwitterCardMeta";
+import Layout from '../components/Layout'
+import BasicMeta from '../components/meta/BasicMeta'
+import OpenGraphMeta from '../components/meta/OpenGraphMeta'
+import TwitterCardMeta from '../components/meta/TwitterCardMeta'
 
 export default function Custom() {
   return (
     <Layout>
-      <BasicMeta url={"/"} />
-      <OpenGraphMeta url={"/"} />
-      <TwitterCardMeta url={"/"} />
+      <BasicMeta url={'/'} />
+      <OpenGraphMeta url={'/'} />
+      <TwitterCardMeta url={'/'} />
       <div className="container">
         <div>
-            Custom page
+          Custom page
           <h1>
-            Hi, We're Next.js & Netlify<span className="fancy">.</span>
+            Hi, We&apos;re Next.js & Netlify<span className="fancy">.</span>
           </h1>
         </div>
       </div>
@@ -55,5 +55,5 @@ export default function Custom() {
         }
       `}</style>
     </Layout>
-  );
+  )
 }
