@@ -38,7 +38,7 @@ export async function onRequest(context) {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'user-agent': 'cloudflare-functions-github-oauth-login-demo',
+          'user-agent': 'cloudflare-functions-github-oauth-login',
           'accept': 'application/json',
         },
         body: JSON.stringify({ client_id, client_secret, code }),

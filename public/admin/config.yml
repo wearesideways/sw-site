@@ -3,11 +3,10 @@ backend:
   repo: wearesideways/sw-site
   branch: master
   api_root: https://api.github.com
-  base_url: https://lh-cf-pages.sideways.pages.dev
+  base_url: https://sideways.pages.dev
   auth_endpoint: /api/auth
 media_folder: public/images
 public_folder: /images
-publish_mode: editorial_workflow
 
 collections:
   - name: "config"
