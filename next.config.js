@@ -1,20 +1,24 @@
-module.exports = ({
+// @ts-check
+
+/**
+ * @type {import('next').NextConfig}
+ **/
+module.exports = {
   distDir: 'build',
-  pageExtensions: ["tsx"],
+  pageExtensions: ['tsx'],
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push(
       ...[
         {
           test: /\.yml$/,
-          type: "json",
-          use: "yaml-loader",
+          use: 'yaml-loader',
         },
         {
           test: /\.svg$/,
-          use: "@svgr/webpack",
+          use: '@svgr/webpack',
         },
-      ]
-    );
-    return config;
+      ],
+    )
+    return config
   },
-});
+}

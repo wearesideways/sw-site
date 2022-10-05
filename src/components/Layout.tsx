@@ -1,9 +1,9 @@
-import Head from "next/head";
-import Navigation from "./Navigation";
+import Head from 'next/head'
+import Navigation from './Navigation'
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 export default function Layout({ children }: Props) {
   return (
     <div className="root">
@@ -42,5 +42,5 @@ export default function Layout({ children }: Props) {
         `}
       </style>
     </div>
-  );
+  )
 }
