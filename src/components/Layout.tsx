@@ -14,9 +14,9 @@ export default function Layout({ children }: Props) {
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#fff" />
       </Head>
-      <nav>
-        <Navigation />
-      </nav>
+      {/*<nav>*/}
+      {/*  <Navigation />*/}
+      {/*</nav>*/}
       <main>{children}</main>
       <style jsx>
         {`
@@ -27,7 +27,7 @@ export default function Layout({ children }: Props) {
             height: 100%;
           }
           main {
-            display: flex;
+            width: 100%;
             min-height: 100%;
           }
           @media (min-width: 769px) {
