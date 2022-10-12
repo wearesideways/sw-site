@@ -26,30 +26,30 @@ export default function Index() {
               <div className='headline-4'>Modern Hospitality</div>
             </h2>
           }
-          columnsContent={
-            <div>
-              <h2>Work</h2>
-              <p>Sideways is a digital-first branding and creative agency uniquely positioned to
+          secondaryContent={
+            <div className='first-column'>
+              <h2 className='title'>Work</h2>
+              <p className='description'>Sideways is a digital-first branding and creative agency uniquely positioned to
                 differentiate your brand in a world where branding never stops.</p>
             </div>
           }
           cta={
-            <a href='/work'>
+            <a className='cta cta-circle' href='/work'>
               View All
             </a>
           }
         />
         <SocialList />
       </div>
-      <style jsx>{`
+      <style jsx>{` 
         .headline {
           padding: 0;
           color: white;
-          margin: 120px auto 22px;
+          margin: 0 auto 22px;
           font-weight: 100;
           text-transform: uppercase;
-          font-size: clamp(48px, 7vw, 128px);
-          line-height: clamp(48px, 7vw, 128px);
+          font-size: max(48px, 7vw);
+          line-height: max(48px, 7vw);
           font-family: 'FH Oscar Light', Helvetica;
           width: 100%;
           max-width: 280px;
@@ -77,11 +77,39 @@ export default function Index() {
           text-align-last: justify;
         }
         
+        .first-column {
+          width: 100%;
+        }
+        
+        .title {
+          color: white;
+          font-size: 12px;
+          text-align: center;
+          margin: 0 0 22px 0;
+          text-transform: uppercase;
+          font-family: 'FH Oscar Medium', Helvetica;
+        }
+        
+        .description {
+          color: white;
+          margin: 0 auto;
+          font-size: 18px;
+          max-width: 280px;
+          text-align: center;
+          font-family: 'FH Oscar Regular', Helvetica;
+        }
+        
+        .cta-circle {
+          bottom: 0;
+          right: 90px;
+          background: white;
+          position: absolute;
+        }
+        
         @media (min-width: 576px) {
           .headline {
-            padding: 0 55px;
             max-width: none;
-            margin: 110px auto;
+            margin: 0 auto;
             text-align: justify;
           }
           
@@ -113,25 +141,44 @@ export default function Index() {
           .headline-4 {
             text-align: justify;
           }
+          
+          .first-column {
+            width: 50%;
+          }
+          
+          .title {  
+            text-align: left;
+          }
+          
+          .description {
+            text-align: left;
+            max-width: none;
+          }
         }
 
         @media (min-width: 768px) {
-          .headline {
-            padding: 0 90px;
+          .title {  
+            font-size: 18px;
+            text-align: left;
+          }
+          
+          .description {
+            font-size: 30px;
+            text-align: left;
           }
         }
         
         @media (min-width: 1200px) {
           .headline {
-            font-size: clamp(48px, 8vw, 128px);
-            line-height: clamp(48px, 8vw, 128px);
+            font-size: 8vw;
+            line-height: 8vw;
           }
         }
         
         @media (min-width: 1440px) {
           .headline {
-            font-size: clamp(48px, 9vw, 128px);
-            line-height: clamp(48px, 9vw, 128px);
+            font-size: min(9vw, 128px);
+            line-height: min(9vw, 128px);
           }
           
           .headline-4 {
