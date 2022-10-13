@@ -1,0 +1,84 @@
+@import 'variables';
+
+@mixin missing-hover() {
+  &:hover {
+    transform: scale(1.5);
+    outline: 10px solid $danger;
+    background-color: $danger;
+
+    &::after {
+      content: 'Missing hover state';
+      // stylelint-disable-next-line scale-unlimited/declaration-strict-value
+      font-size: 12px;
+      color: $white;
+      text-shadow: 1px 1px 3px $black;
+      font-family: $font-family-1;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      z-index: $zindex-2;
+      width: 200px;
+      transform: translate(0, -100%);
+    }
+  }
+}
+
+@mixin unstyled-btn() {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+@mixin unstyled-select() {
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin wysiwyg-copy {
+  overflow: hidden;
+
+  a:not([class*='cta']) {
+    // TODO find a way to add CTAs on wysiwyg
+    // @extend %cta;
+
+    text-decoration: underline;
+    color: inherit;
+    white-space: normal;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    margin-bottom: 1.6rem;
+  }
+
+  // Tables are bad for mobile, we should discourage CMS users to use it
+  table {
+    background-color: $danger;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin focus-visible-focused() {
+  outline-offset: 2px;
+  outline: $blue solid 2px;
+}
+
+@mixin on-contrast-more() {
+  .is-contrast-more {
+    @content;
+  }
+}
