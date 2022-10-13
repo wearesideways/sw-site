@@ -15,6 +15,41 @@ export default function Layout({ children }: Props) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#fff" />
+        <link
+          rel="preload"
+          href="/fonts/FHOscar-Light.otf"
+          as="font"
+          crossOrigin=""
+          type="opentype"
+        />
+        <link
+          rel="preload"
+          href="/fonts/FHOscar-Regular.otf"
+          as="font"
+          crossOrigin=""
+          type="opentype"
+        />
+        <link
+          rel="preload"
+          href="/fonts/FHOscar-Medium.otf"
+          as="font"
+          crossOrigin=""
+          type="opentype"
+        />
+        <link
+          rel="preload"
+          href="/fonts/FHPhemisterDisplay-LightItalic.otf"
+          as="font"
+          crossOrigin=""
+          type="opentype"
+        />
+        <link
+          rel="preload"
+          href="/fonts/FHPhemisterDisplay-Regular.otf"
+          as="font"
+          crossOrigin=""
+          type="opentype"
+        />
         <style>{`
           @font-face {
             font-family: 'FH Oscar';
@@ -39,7 +74,7 @@ export default function Layout({ children }: Props) {
           }
           @font-face {
             font-family: 'FH Phemister';
-            src: url('s/fonts/FHPhemisterDisplay-Regular.otf') format('opentype');
+            src: url('/fonts/FHPhemisterDisplay-Regular.otf') format('opentype');
             font-weight: 400;
           }
         `}</style>
