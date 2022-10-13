@@ -1,15 +1,16 @@
 import React, { ReactNode } from 'react'
 
 type Props = {
-  primaryContent: ReactNode | null
+  primaryContent: ReactNode
   divider?: boolean
-  secondaryContent?: ReactNode | null
-  cta?: ReactNode | null
+  secondaryContent?: ReactNode
+  cta?: ReactNode
+  className?: string
 }
 
-export function Text({ primaryContent, divider, secondaryContent, cta }: Props) {
+export function Text({ primaryContent, divider, secondaryContent, cta, className }: Props) {
   return (
-    <div className='text-module'>
+    <div className={`text-module ${className}`}>
       <div className='container'>
         {primaryContent}
       </div>
@@ -28,9 +29,9 @@ export function Text({ primaryContent, divider, secondaryContent, cta }: Props) 
         }
         .container {
           margin: 0 auto;
-          overflow: auto;
           padding: 0 55px;
           max-width: 1440px;
+          position: relative;
         }
                
         hr {
