@@ -4,10 +4,6 @@
  * @type {import('next').NextConfig}
  **/
 module.exports = {
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
   distDir: 'build',
   pageExtensions: ['tsx'],
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {

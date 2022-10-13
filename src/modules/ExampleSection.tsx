@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import styles from './Example.module.scss'
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -6,7 +6,7 @@ interface ExampleProps {
   children: ReactNode
 }
 
-const Example: FC<ExampleProps> = ({ children }) => {
+export default function ExampleSection({ children }: ExampleProps) {
   return (
     <section className={styles['root']}>
       <Container>
@@ -17,5 +17,3 @@ const Example: FC<ExampleProps> = ({ children }) => {
     </section>
   )
 }
-
-export default Example
