@@ -3,7 +3,7 @@ import BasicMeta from '../components/meta/BasicMeta'
 import OpenGraphMeta from '../components/meta/OpenGraphMeta'
 import TwitterCardMeta from '../components/meta/TwitterCardMeta'
 import { SocialList } from '../components/SocialList'
-import { TextSection } from './index/TextSection'
+import { TextModule } from '../modules/TextModule'
 import React from 'react'
 
 export default function Index() {
@@ -13,7 +13,7 @@ export default function Index() {
       <OpenGraphMeta url={'/'} />
       <TwitterCardMeta url={'/'} />
       <div>
-        <TextSection />
+        <TextModule />
         <SocialList />
       </div>
       <style jsx>{` 
