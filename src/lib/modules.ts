@@ -9,8 +9,8 @@ const moduleMap: { [key: string]: ModuleContent } = generateModuleMap()
 
 function generateModuleMap(): { [key: string]: ModuleContent } {
   let result: { [key: string]: ModuleContent } = {}
-  for (const module of modules.modules) {
-    result[module.slug] = module
+  for (const moduleToRender of modules.modules) {
+    result[moduleToRender.slug] = moduleToRender
   }
   return result
 }

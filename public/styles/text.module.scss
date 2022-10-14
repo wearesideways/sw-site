@@ -13,7 +13,8 @@
   text-align: center;
 }
 
-.headline-2, .headline-3 {
+.headline-2,
+.headline-3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -29,7 +30,7 @@
 .headline-4 {
   width: 100%;
   text-align: center;
-  letter-spacing: .3vw;
+  letter-spacing: 0.3vw;
   text-align-last: justify;
 }
 

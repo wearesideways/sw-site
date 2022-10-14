@@ -1,6 +1,7 @@
 import { Text } from '../components/Text'
 import React from 'react'
 import styles from '../../public/styles/text.module.scss'
+import Link from 'next/link'
 
 export function TextModule() {
   return (
@@ -11,10 +12,13 @@ export function TextModule() {
           primaryContent={
             <h2 className={styles['headline']}>
               <div className={styles['headline-2']}>
-                Culture Defining<span />
+                Culture Defining
+                <span />
               </div>
               <div className={styles['headline-3']}>
-                Creative<span /><em>for</em>
+                Creative
+                <span />
+                <em>for</em>
               </div>
               <div className={styles['headline-4']}>Modern Hospitality</div>
             </h2>
@@ -22,14 +26,16 @@ export function TextModule() {
           secondaryContent={
             <div className={styles['first-column']}>
               <h2 className={styles['title']}>Work</h2>
-              <p className={styles['description']}>Sideways is a digital-first branding and creative agency uniquely positioned to
-                differentiate your brand in a world where branding never stops.</p>
+              <p className={styles['description']}>
+                Sideways is a digital-first branding and creative agency uniquely positioned to
+                differentiate your brand in a world where branding never stops.
+              </p>
             </div>
           }
           cta={
-            <a className={styles['cta-circle']} href='/work'>
-              View All
-            </a>
+            <Link href="/work">
+              <a className={styles['cta-circle']}>View All</a>
+            </Link>
           }
         />
       </div>
