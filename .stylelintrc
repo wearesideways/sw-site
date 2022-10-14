@@ -1,0 +1,38 @@
+{
+  "customSyntax": "postcss-scss",
+  "extends": ["@wemake-services/stylelint-config-scss", "stylelint-config-prettier"],
+  "rules": {
+    "csstree/validator": null,
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "scss/no-global-function-names": null,
+    "scss/at-mixin-parentheses-space-before": null,
+    "scss/at-mixin-pattern": null,
+    "scss/operator-no-newline-after": null,
+    "scss/media-feature-value-dollar-variable": null,
+    "plugin/stylelint-no-indistinguishable-colors": [
+      true,
+      {
+        "threshold": 1,
+        "allowEquivalentNotation": true
+      }
+    ],
+    "scss/no-duplicate-mixins": true,
+    "scss/at-mixin-named-arguments": null,
+    "scss/at-function-named-arguments": "never",
+    "csstools/use-nesting": null,
+    "declaration-property-value-disallowed-list": {
+      "/^transition(?!-(delay|timing|duration))/": ["/\\s*/"]
+    },
+    "scale-unlimited/declaration-strict-value": [
+      ["/color/", "z-index", "font-size", "font-family"],
+      {
+        "disableFix": true,
+        "ignoreKeywords": {
+          "": ["inherit"],
+          "/color/": ["currentColor", "transparent", "inherit"]
+        }
+      }
+    ]
+  }
+}
