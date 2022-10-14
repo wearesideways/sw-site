@@ -1,0 +1,4 @@
+modules:
+  - slug: text-module
+    name: TextModule
+    label: Text Module
