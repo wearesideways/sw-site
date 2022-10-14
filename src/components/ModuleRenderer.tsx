@@ -6,11 +6,11 @@ type Props = {
 }
 
 export default function ModuleRenderer({ module }: Props) {
-  const ModuleToRender = moduleIndex[module.name]
+  const ModuleToRender = moduleIndex[module?.name]
 
   return (
     <>
-      <ModuleToRender />
+      {ModuleToRender && <ModuleToRender />}
     </>
   )
 }

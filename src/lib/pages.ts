@@ -13,11 +13,11 @@ export type PageContent = {
   readonly fullPath: string
 }
 
-let postCache: PageContent[]
+let pageCache: PageContent[]
 
 export function fetchPageContent(): PageContent[] {
-  if (postCache) {
-    return postCache
+  if (pageCache) {
+    return pageCache
   }
   // Get file names under /pages
   const fileNames = fs.readdirSync(pagesDirectory)
@@ -28,7 +28,7 @@ export function fetchPageContent(): PageContent[] {
       const fullPath = path.join(pagesDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-      // Use gray-matter to parse the post metadata section
+      // Use gray-matter to parse the page metadata section
       const matterResult = matter(fileContents, {
         engines: {
           yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
@@ -53,12 +53,12 @@ export function fetchPageContent(): PageContent[] {
       return matterData
     })
   // Sort pages by date
-  postCache = allPagesData.sort((a, b) => {
+  pageCache = allPagesData.sort((a, b) => {
     if (a.date < b.date) {
       return 1
     } else {
       return -1
     }
   })
-  return postCache
+  return pageCache
 }
