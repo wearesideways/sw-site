@@ -1,0 +1,25 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.root {
+  @include module();
+  @include module-spacing-1();
+
+  // same as adding class "container" or using <Container>
+  // @include make-container();
+
+  @include tr-header-1();
+
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.inner {
+  background-color: $blue;
+}
