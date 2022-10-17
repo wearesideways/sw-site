@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '../components/Text'
-import styles from '../../public/styles/text.module.scss'
+import styles from './text.module.scss'
 import Link from 'next/link'
 
 type Props = {
@@ -26,38 +26,36 @@ export default function TextModule({
   cta,
 }: Props) {
   return (
-    <>
-      <div className={styles['text_section']}>
-        <Text
-          divider={divider}
-          primaryContent={
-            <h2 className={styles['headline']}>
-              <div className={styles['headline-2']}>
-                {text1}
-                <span />
-              </div>
-              <div className={styles['headline-3']}>
-                {text2}
-                <span />
-                <em>{text3}</em>
-              </div>
-              <div className={styles['headline-4']}>{text4}</div>
-            </h2>
-          }
-          secondaryContent={
-            <div className={styles['first-column']}>
-              <h2 className={styles['title']}>Work</h2>
-              <p className={styles['description']}>{secondaryText}</p>
+    <div>
+      <Text
+        divider={divider}
+        primaryContent={
+          <h2 className={styles['headline']}>
+            <div className={styles['headline-2']}>
+              {text1}
+              <span className={styles['line']} />
             </div>
-          }
-          cta={
-            // TODO use CTA component when is ready
-            <Link href={cta.href}>
-              <a className={styles['cta-circle']}>{cta.text}</a>
-            </Link>
-          }
-        />
-      </div>
-    </>
+            <div className={styles['headline-3']}>
+              {text2}
+              <span className={styles['line']} />
+              <em className={styles['italic-em']}>{text3}</em>
+            </div>
+            <div className={styles['headline-4']}>{text4}</div>
+          </h2>
+        }
+        secondaryContent={
+          <div className={styles['first-column']}>
+            <h2 className={styles['title']}>Work</h2>
+            <p className={styles['description']}>{secondaryText}</p>
+          </div>
+        }
+        cta={
+          // TODO use CTA component when is ready
+          <Link href={cta.href}>
+            <a className={styles['cta-circle']}>{cta.text}</a>
+          </Link>
+        }
+      />
+    </div>
   )
 }

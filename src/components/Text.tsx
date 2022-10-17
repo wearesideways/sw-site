@@ -10,7 +10,7 @@ type Props = {
 
 export function Text({ primaryContent, divider, secondaryContent, cta, className }: Props) {
   return (
-    <div className={`text-module ${className}`}>
+    <div className={`text-module ${className ? className : ''}`}>
       <div className="container">{primaryContent}</div>
       {divider && <hr />}
       <div className="container">
@@ -25,9 +25,6 @@ export function Text({ primaryContent, divider, secondaryContent, cta, className
           padding: 120px 0;
         }
         .container {
-          margin: 0 auto;
-          padding: 0 55px;
-          max-width: 1440px;
           position: relative;
         }
 
@@ -48,12 +45,6 @@ export function Text({ primaryContent, divider, secondaryContent, cta, className
             height: 1px;
             width: 100%;
             margin: 110px auto 83px;
-          }
-        }
-
-        @media (min-width: 768px) {
-          .container {
-            padding: 0 90px;
           }
         }
       `}</style>
