@@ -1,9 +1,9 @@
-import { Text } from '../components/Text'
 import React from 'react'
+import { Text } from '../components/Text'
 import styles from '../../public/styles/text.module.scss'
 import Link from 'next/link'
 
-export function TextModule() {
+export default function TextModule() {
   return (
     <>
       <div className={styles['text_section']}>

@@ -1,3 +1,4 @@
+import React, { ReactElement } from 'react'
 import { ModuleContent } from '../lib/modules'
 import { moduleIndex } from './ModuleIndex'
 
@@ -6,7 +7,7 @@ type Props = {
 }
 
 export default function ModuleRenderer({ module }: Props) {
-  const ModuleToRender = moduleIndex[module?.name]
+  const ModuleToRender: ReactElement | any = moduleIndex[module?.name]
 
   return <>{ModuleToRender && <ModuleToRender />}</>
 }

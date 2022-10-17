@@ -1,5 +1,5 @@
-import { TextModule } from '../modules/TextModule'
+import TextModule from '../modules/TextModule'
 
-export const moduleIndex = {
+export const moduleIndex: { [key: string]: ({}: any) => {} } = {
   TextModule: TextModule,
 }
