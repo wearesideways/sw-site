@@ -17,7 +17,7 @@ type Props = {
   date: Date
   slug: string
   tags: string[]
-  modules?: string[]
+  modules?: { _type: string }[]
   author: string
   description?: string
   children: React.ReactNode
@@ -53,11 +53,14 @@ export default function PageLayout({
         description={description}
       />
       <div>
-        {modules!.map((it, i) => (
-          <div key={i}>
-            <ModuleRenderer module={getModule(it)!} />
-          </div>
-        ))}
+        {modules!.map((it, i) => {
+          const { _type, ...props } = it
+          return (
+            <div key={i}>
+              <ModuleRenderer module={getModule(_type)!} {...props} />
+            </div>
+          )
+        })}
         <footer>
           <div className={'social-list'}>
             <SocialList />

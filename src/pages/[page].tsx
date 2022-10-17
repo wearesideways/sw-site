@@ -16,7 +16,7 @@ export type Props = {
   dateString: string
   slug: string
   tags: string[]
-  modules: string[]
+  modules?: { _type: string }[]
   author: string
   description?: string
   source: MDXRemoteSerializeResult

@@ -6,8 +6,8 @@ type Props = {
   module: ModuleContent
 }
 
-export default function ModuleRenderer({ module }: Props) {
+export default function ModuleRenderer({ module, ...props }: Props) {
   const ModuleToRender: ReactElement | any = moduleIndex[module?.name]
 
-  return <>{ModuleToRender && <ModuleToRender />}</>
+  return <>{ModuleToRender && <ModuleToRender {...props} />}</>
 }
