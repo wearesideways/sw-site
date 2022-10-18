@@ -1,0 +1,7 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.hero {
+  @include module();
+  @include module-spacing-1();
+}
