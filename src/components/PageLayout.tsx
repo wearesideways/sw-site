@@ -1,12 +1,10 @@
 import React from 'react'
-import Copyright from './Copyright'
 import Date from './Date'
 import Layout from './Layout'
 import BasicMeta from './meta/BasicMeta'
 import JsonLdMeta from './meta/JsonLdMeta'
 import OpenGraphMeta from './meta/OpenGraphMeta'
 import TwitterCardMeta from './meta/TwitterCardMeta'
-import { SocialList } from './SocialList'
 import { getAuthor } from '../lib/authors'
 import { getTag } from '../lib/tags'
 import { getModule } from '../lib/modules'
@@ -20,7 +18,6 @@ type Props = {
   modules?: { _type: string }[]
   author: string
   description?: string
-  children: React.ReactNode
 }
 export default function PageLayout({
   title,
@@ -61,21 +58,8 @@ export default function PageLayout({
             </div>
           )
         })}
-        <footer>
-          <div className={'social-list'}>
-            <SocialList />
-          </div>
-          <Copyright />
-        </footer>
+        <footer>Space footer</footer>
       </div>
-      <style jsx>
-        {`
-          .social-list {
-            margin-top: 3rem;
-            text-align: center;
-          }
-        `}
-      </style>
     </Layout>
   )
 }

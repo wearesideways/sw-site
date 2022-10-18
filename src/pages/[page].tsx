@@ -1,3 +1,4 @@
+import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import matter from 'gray-matter'
 import { fetchPageContent, PageContent } from '../lib/pages'
@@ -5,10 +6,6 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import { parseISO } from 'date-fns'
 import PageLayout from '../components/PageLayout'
-import YouTube from 'react-youtube'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types'
 
 export type Props = {
@@ -22,7 +19,6 @@ export type Props = {
   source: MDXRemoteSerializeResult
 }
 
-const components = { YouTube, TwitterTweetEmbed }
 const slugToPageContent = ((pageContents) => {
   const hash: Record<string, PageContent> = {}
   pageContents.forEach((it) => (hash[it.slug] = it))
@@ -37,7 +33,6 @@ export default function Page({
   modules,
   author,
   description = '',
-  source,
 }: Props) {
   return (
     <PageLayout
@@ -48,9 +43,7 @@ export default function Page({
       modules={modules}
       author={author}
       description={description}
-    >
-      <MDXRemote {...source} components={components} />
-    </PageLayout>
+    />
   )
 }
 
@@ -65,10 +58,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params!['page'] as string
   const source = fs.readFileSync(slugToPageContent[slug]!.fullPath, 'utf8')
-  const { content, data } = matter(source, {
+  const { data } = matter(source, {
     engines: { yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object },
   })
-  const mdxSource = await serialize(content, { scope: data })
+
   return {
     props: {
       title: data['title'],
@@ -78,7 +71,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       tags: data['tags'],
       modules: data['modules'],
       author: data['author'],
-      source: mdxSource,
     },
   }
 }
