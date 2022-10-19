@@ -10,7 +10,7 @@ export default function Hero({ slides }: Props) {
     <section className={styles['hero']}>
       <div className="swiper">
         {slides?.map((slide, index) => (
-          <Media key={`slide-${index}`} {...slide.media} />
+          <Media key={`slide-${index}`} {...slide.media} classes={styles['slide-media']} />
         ))}
       </div>
     </section>
