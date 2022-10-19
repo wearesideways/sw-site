@@ -1,0 +1,36 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.swmedia-img {
+  @include img-fluid();
+}
+
+.swmedia-sm {
+  @include media-breakpoint-up($swmedia-lg-breakpoint) {
+    display: none !important;
+  }
+}
+
+.swmedia-lg {
+  &.has-sm-variant {
+    @include media-breakpoint-down($swmedia-lg-breakpoint) {
+      display: none !important;
+    }
+  }
+}
+
+.swmedia-object {
+  object-fit: cover;
+}
+
+.swmedia-video .swmedia-object:not([autoplay]) {
+  object-fit: contain;
+}
+
+// Use this to target actual media tags (img, video)
+@mixin media-object-selector() {
+  &.swmedia-object,
+  .swmedia-object {
+    @content;
+  }
+}
