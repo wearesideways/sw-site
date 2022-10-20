@@ -8,6 +8,10 @@ backend:
 media_folder: public/images
 public_folder: /images
 
+local_backend:
+  # when using a custom proxy server port
+  url: http://localhost:8081/api/v1
+
 collections:
   - name: 'config'
     label: 'Config'

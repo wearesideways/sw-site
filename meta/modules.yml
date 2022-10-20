@@ -3,6 +3,9 @@ modules:
     name: HeadlineIntroModule
     label: Headline With Divider and Intro Module
     fields:
+      - label: 'Divider'
+        name: 'divider'
+        widget: 'boolean'
       - label: 'Secondary Text'
         name: 'secondaryText'
         widget: 'string'
