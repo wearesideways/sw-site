@@ -62,6 +62,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     engines: { yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object },
   })
 
+  console.log('data-->', data)
+
   return {
     props: {
       title: data['title'],

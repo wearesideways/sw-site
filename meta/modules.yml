@@ -2,3 +2,7 @@ modules:
   - slug: headline-intro-module
     name: HeadlineIntroModule
     label: Headline With Divider and Intro Module
+    fields:
+      - label: 'Secondary Text'
+        name: 'secondaryText'
+        widget: 'string'
