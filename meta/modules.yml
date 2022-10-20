@@ -1,4 +1,4 @@
 modules:
-  - slug: text-module
-    name: TextModule
-    label: Text Module
+  - slug: headline-intro-module
+    name: HeadlineIntroModule
+    label: Headline With Divider and Intro Module

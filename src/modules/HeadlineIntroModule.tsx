@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text } from '../components/Text'
-import styles from './text.module.scss'
+import { TextDividerText } from '../components/TextDividerText'
+import styles from './HeadlineIntro.module.scss'
 import Link from 'next/link'
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
   }
 }
 
-export default function TextModule({
+export default function HeadlineIntroModule({
   text1,
   text2,
   text3,
@@ -26,8 +26,8 @@ export default function TextModule({
   cta,
 }: Props) {
   return (
-    <div>
-      <Text
+    <section className={styles['root']}>
+      <TextDividerText
         divider={divider}
         primaryContent={
           <h2 className={styles['headline']}>
@@ -52,10 +52,10 @@ export default function TextModule({
         cta={
           // TODO use CTA component when is ready
           <Link href={cta.href}>
-            <a className={styles['cta-circle']}>{cta.text}</a>
+            <span className={styles['cta-circle']}>{cta.text}</span>
           </Link>
         }
       />
-    </div>
+    </section>
   )
 }

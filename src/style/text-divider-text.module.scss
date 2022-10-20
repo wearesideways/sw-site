@@ -1,0 +1,31 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.text-divider-text {
+  background: $black;
+  padding: 120px 0;
+}
+
+.container {
+  position: relative;
+}
+
+.divider {
+  width: 1px;
+  height: 60px;
+  border: none;
+  background: $white;
+  margin: 22px auto;
+}
+
+@media (min-width: 576px) {
+  .text-module {
+    padding: 110px 0;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    margin: 110px auto 83px;
+  }
+}

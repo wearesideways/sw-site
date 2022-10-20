@@ -1,5 +1,5 @@
-import TextModule from '../modules/TextModule'
+import HeadlineIntroModule from '../modules/HeadlineIntroModule'
 
 export const moduleIndex: { [key: string]: ({}: any) => {} } = {
-  TextModule: TextModule,
+  HeadlineIntroModule: HeadlineIntroModule,
 }
