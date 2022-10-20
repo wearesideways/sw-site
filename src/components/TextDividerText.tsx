@@ -17,10 +17,10 @@ export function TextDividerText({
   className,
 }: Props) {
   return (
-    <div className={styles['text-divider-text']}>
-      <div className={styles['container']}>{primaryContent}</div>
+    <div className={`${styles['text-divider-text']} ${className ?? ''}`}>
+      <div className={`container ${styles['container']}`}>{primaryContent}</div>
       {divider && <hr className={styles['divider']} />}
-      <div className={styles['container']}>
+      <div className={`container ${styles['container']}`}>
         {secondaryContent}
 
         {cta}
