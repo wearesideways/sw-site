@@ -79,9 +79,9 @@ export default function Layout({ children }: Props) {
           }
         `}</style>
       </Head>
-      <nav>
-        <Navigation />
-      </nav>
+      {/*<nav>*/}
+      {/*  <Navigation />*/}
+      {/*</nav>*/}
       <main>{children}</main>
     </div>
   )

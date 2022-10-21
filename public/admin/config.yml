@@ -8,6 +8,10 @@ backend:
 media_folder: public/images
 public_folder: /images
 
+local_backend:
+  # when using a custom proxy server port
+  url: http://localhost:8081/api/v1
+
 collections:
   - name: 'config'
     label: 'Config'
@@ -90,6 +94,24 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'Tag name for displaying on the site'
+      - name: 'modules'
+        label: 'Modules'
+        file: 'meta/modules.yml'
+        description: 'List of modules'
+        fields:
+          - name: modules
+            label: Modules
+            label_singular: 'Module'
+            widget: list
+            fields:
+              - label: 'Slug'
+                name: 'slug'
+                widget: 'string'
+                hint: 'The part of the page identifies the module'
+              - label: 'Display Name'
+                name: 'name'
+                widget: 'string'
+                hint: 'Module name for displaying on the site'
 
   - name: 'posts'
     label: 'Posts'
@@ -142,6 +164,55 @@ collections:
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
+
+  - name: 'pages'
+    label: 'Pages'
+    folder: 'content/pages/'
+    extension: 'mdx'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    identifier_field: slug
+    summary: '{{title}}'
+    fields:
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+      - label: Author
+        name: 'author'
+        widget: relation
+        collection: 'meta'
+        file: 'authors'
+        search_fields:
+          - 'authors.*.name'
+        display_fields:
+          - 'authors.*.name'
+        value_field: 'authors.*.slug'
+      - label: Modules
+        label_singular: 'Module'
+        name: 'modules'
+        widget: list
+        summary: '{{fields.module}}'
+        field:
+          label: Module
+          name: module
+          widget: relation
+          collection: 'meta'
+          file: 'modules'
+          search_fields:
+            - 'modules.*.name'
+          display_fields:
+            - 'modules.*.name'
+          value_field: 'modules.*.slug'
 
   - name: 'projects'
     label: 'Projects'
