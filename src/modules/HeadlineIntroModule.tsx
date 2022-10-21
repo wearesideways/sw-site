@@ -31,31 +31,35 @@ export default function HeadlineIntroModule({
         divider={divider}
         primaryContent={
           <h2 className={styles['headline']}>
-            <div className={styles['headline-2']}>
-              {text1}
-              <span className={styles['line']} />
-            </div>
-            <div className={styles['headline-3']}>
+            <span className={styles['headline-2']}>{text1}</span>
+            <span className={styles['headline-3']}>
               {text2}
               <span className={styles['line']} />
               <em className={styles['italic-em']}>{text3}</em>
-            </div>
-            <div className={styles['headline-4']}>{text4}</div>
+            </span>
+            <span className={styles['headline-4']}>{text4}</span>
           </h2>
         }
         secondaryContent={
-          <div className={styles['first-column']}>
-            <h2 className={styles['title']}>Work</h2>
-            <p className={styles['description']}>{secondaryText}</p>
-          </div>
-        }
-        cta={
-          // TODO use CTA component when is ready
-          <Link href={cta.href}>
-            <span className={styles['cta-circle']}>{cta.text}</span>
-          </Link>
+          <>
+            <div className={styles['first-column']}>
+              <h2 className={styles['title']}>Work</h2>
+              <p className={styles['description']}>{secondaryText}</p>
+            </div>
+            {/* TODO use CTA component when is ready */}
+            <Link href={cta.href}>
+              <span className={styles['cta-circle']}>{cta.text}</span>
+            </Link>
+          </>
         }
       />
     </section>
   )
+}
+
+HeadlineIntroModule.defaultProps = {
+  text1: 'Culture Defining',
+  text2: 'Creative',
+  text3: 'for',
+  text4: 'Modern Hospitality',
 }

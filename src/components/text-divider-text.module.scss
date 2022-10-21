@@ -1,12 +1,11 @@
 @import '../style/lib';
-@import '../style/modules';
 
 .text-divider-text {
   background: $black;
   padding: 120px 0;
 }
 
-.container {
+.content {
   position: relative;
 }
 
@@ -19,7 +18,7 @@
 }
 
 @media (min-width: 576px) {
-  .text-module {
+  .text-divider-text {
     padding: 110px 0;
   }
 

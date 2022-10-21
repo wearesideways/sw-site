@@ -6,7 +6,6 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import { parseISO } from 'date-fns'
 import PageLayout from '../components/PageLayout'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types'
 
 export type Props = {
   title: string
@@ -16,7 +15,6 @@ export type Props = {
   modules?: { _type: string }[]
   author: string
   description?: string
-  source: MDXRemoteSerializeResult
 }
 
 const slugToPageContent = ((pageContents) => {
@@ -61,8 +59,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data } = matter(source, {
     engines: { yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object },
   })
-
-  console.log('data-->', data)
 
   return {
     props: {
