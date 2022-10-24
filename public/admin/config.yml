@@ -8,7 +8,6 @@ backend:
 media_folder: public/images
 public_folder: /images
 
-# Run npx netlify-cms-proxy-server from the root directory
 local_backend:
   # when using a custom proxy server port
   url: http://localhost:8081/api/v1
