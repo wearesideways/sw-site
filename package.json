@@ -3,9 +3,11 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "front": "next dev",
     "build": "next build",
     "start": "next start",
+    "netlify-cms-proxy-server": "npx netlify-cms-proxy-server",
+    "dev": "npm-run-all --parallel front netlify-cms-proxy-server",
     "lint": "next lint && stylelint 'src/**/*.scss'",
     "export": "next build && next export -o ./dist",
     "test": "jest",
