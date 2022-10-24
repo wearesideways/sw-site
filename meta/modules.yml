@@ -13,13 +13,20 @@ modules:
     name: HeroModule
     label: HeroModule Image with optional text
     fields:
-      - label: Media
-        name: media
-        widget: image
-        allow_multiple: false
+      - label: Slides
+        name: slides
+        widget: list
+        min: 1
+        fields:
+          - label: Media
+            name: media
+            widget: image
+            allow_multiple: false
       - label: Headline
         name: headline
+        required: false
         widget: string
       - label: Overlay Text
-        name: overlay_text
+        name: overlayText
+        required: false
         widget: string
