@@ -3,9 +3,23 @@ modules:
     name: HeadlineIntroModule
     label: Headline With Divider and Intro Module
     fields:
-      - label: 'Divider'
-        name: 'divider'
-        widget: 'boolean'
-      - label: 'Secondary Text'
-        name: 'secondaryText'
-        widget: 'string'
+      - label: Divider
+        name: divider
+        widget: boolean
+      - label: Secondary Text
+        name: secondaryText
+        widget: string
+  - slug: hero-module
+    name: HeroModule
+    label: HeroModule Image with optional text
+    fields:
+      - label: Media
+        name: media
+        widget: image
+        allow_multiple: false
+      - label: Headline
+        name: headline
+        widget: string
+      - label: Overlay Text
+        name: overlay_text
+        widget: string
