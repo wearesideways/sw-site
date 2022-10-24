@@ -5,10 +5,10 @@ type Props = {
   alt?: string
   type: string
   presentational?: boolean
-  classes?: string
+  className?: string
 }
 
-export default function Media({ src, alt, type, presentational, classes }: Props) {
+export default function Media({ src, alt, type, presentational, className }: Props) {
   // TODO implement other media types
   if (type === 'img') {
     const swmediaClasses = [
@@ -20,7 +20,7 @@ export default function Media({ src, alt, type, presentational, classes }: Props
 
     return (
       <img
-        className={`${swmediaClasses.join(' ')} ${classes ?? ''}`}
+        className={`${swmediaClasses.join(' ')} ${className ?? ''}`}
         src={src}
         alt={alt ?? ''}
         {...(presentational && { presentational: 'true', alt: '' })}
