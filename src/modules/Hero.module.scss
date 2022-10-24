@@ -4,8 +4,9 @@
 .hero {
   @include module();
   @include module-spacing-1();
-}
 
-.slide-media {
-  height: 100vh;
+  .slide-media {
+    width: 100%;
+    height: 100vh;
+  }
 }
