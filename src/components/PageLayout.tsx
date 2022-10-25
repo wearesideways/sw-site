@@ -52,9 +52,7 @@ export default function PageLayout({
       <div>
         {modules!.map((it, i) => {
           const { _type, ...props } = it
-          return (
-            <ModuleRenderer key={i} module={getModule(_type)!} {...props} />
-          )
+          return <ModuleRenderer key={i} module={getModule(_type)!} {...props} />
         })}
         <footer>Space footer</footer>
       </div>
