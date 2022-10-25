@@ -1,16 +1,16 @@
 import styles from './Media.module.scss'
 
 type Props = {
-  src: string
+  img: string
   alt?: string
-  type: string
+  mediaType: string
   presentational?: boolean
   className?: string
 }
 
-export default function Media({ src, alt, type, presentational, className }: Props) {
+export default function Media({ img, alt, mediaType, presentational, className }: Props) {
   // TODO implement other media types
-  if (type === 'img') {
+  if (mediaType === 'img') {
     const swmediaClasses = [
       'swmedia',
       styles['swmedia-img'],
@@ -21,7 +21,7 @@ export default function Media({ src, alt, type, presentational, className }: Pro
     return (
       <img
         className={`${swmediaClasses.join(' ')} ${className ?? ''}`}
-        src={src}
+        src={img}
         alt={alt ?? ''}
         {...(presentational && { presentational: 'true', alt: '' })}
       />
