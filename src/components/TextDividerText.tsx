@@ -14,7 +14,7 @@ export function TextDividerText({ primaryContent, divider, secondaryContent, cla
     <div className={`${styles['text-divider-text']} ${className ?? ''}`}>
       <Container>{primaryContent}</Container>
       {divider && <hr className={styles['divider']} />}
-      <Container className={styles['content']}>{secondaryContent}</Container>
+      <Container className={[styles['content'], !divider ? styles['no-divider'] : '']}>{secondaryContent}</Container>
     </div>
   )
 }
