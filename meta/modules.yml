@@ -20,8 +20,16 @@ modules:
         fields:
           - label: Media
             name: media
-            widget: image
-            allow_multiple: false
+            widget: object
+            collapsed: true
+            fields:
+              - label: Image
+                name: img
+                widget: image
+                allow_multiple: false
+              - label: Alternative Text
+                name: alt
+                widget: string
       - label: Headline
         name: headline
         required: false
