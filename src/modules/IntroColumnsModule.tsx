@@ -2,7 +2,7 @@ import React from 'react'
 import { TextDividerText } from '../components/TextDividerText'
 import styles from './IntroColumns.module.scss'
 import Link from 'next/link'
-import classnames from 'classnames'
+import classNames from 'classnames'
 
 type Props = {
   primaryText: string
@@ -38,13 +38,13 @@ export default function IntroColumnsModule({
         primaryContent={<p className={styles['primary-content']}>{primaryText}</p>}
         secondaryContent={
           <div className={styles['columns-content']}>
-            <div className={classnames(styles['column-content'], styles['first-column'])}>
+            <div className={classNames(styles['column-content'], styles['first-column'])}>
               <h2 className={styles['title']}>{column1title}</h2>
               <p className={styles['description']}>{column1content}</p>
             </div>
 
             <div
-              className={classnames(
+              className={classNames(
                 styles['column-content'],
                 styles['second-column'],
                 styles['secondary-column-type'],
@@ -58,7 +58,7 @@ export default function IntroColumnsModule({
             </div>
 
             <div
-              className={classnames(
+              className={classNames(
                 styles['column-content'],
                 styles['third-column'],
                 styles['secondary-column-type'],
@@ -72,7 +72,7 @@ export default function IntroColumnsModule({
             </div>
 
             <div
-              className={classnames(
+              className={classNames(
                 styles['column-content'],
                 styles['fourth-column'],
                 styles['secondary-column-type'],
