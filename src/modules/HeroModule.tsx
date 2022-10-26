@@ -17,11 +17,12 @@ export default function HeroModule({ slides }: Props) {
       <Col xs={12}>
         <Swiper effect={'fade'} allowTouchMove={slides && slides.length > 1} modules={[EffectFade]}>
           {slides &&
-            slides.map((slide) => (
-              <SwiperSlide key={`slide-${slide.id}`}>
+            slides.map((slide, index) => (
+              <SwiperSlide key={`slide-${index}`}>
                 <Media
-                  key={`slide-media-${slide.id}`}
+                  key={`slide-media-${index}`}
                   {...slide.media}
+                  presentational={false}
                   className={styles['slide-media']}
                 />
               </SwiperSlide>
