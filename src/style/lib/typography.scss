@@ -50,6 +50,26 @@
   text-transform: uppercase;
 }
 
+@mixin t-Oscar_Light_30_White() {
+  font-family: $font-family-1;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0.03em;
+  line-height: 30px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+@mixin t-Oscar_Light_114_White() {
+  font-family: $font-family-1;
+  font-weight: 300;
+  font-size: max(114px, 7.5vw);
+  letter-spacing: 0.03em;
+  line-height: max(114px, 7.5vw);
+  color: $white;
+  text-transform: uppercase;
+}
+
 @mixin t-Phemister_Regular_XXLarge_White() {
   color: $white;
   font-family: $font-family-2;
@@ -71,5 +91,13 @@
 
   @include media-breakpoint-up(md) {
     @include t-Oscar_Regular_30_White();
+  }
+}
+
+@mixin tr-headline-1() {
+  @include t-Oscar_Light_30_White();
+
+  @include media-breakpoint-up(lg) {
+    @include t-Oscar_Light_114_White();
   }
 }
