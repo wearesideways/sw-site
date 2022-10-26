@@ -55,7 +55,22 @@
   font-weight: 300;
   font-size: 30px;
   letter-spacing: 0.03em;
-  line-height: 30px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+@mixin t-Oscar_Light_30_White-alt-1() {
+  @include t-Oscar_Light_30_White();
+
+  font-size: max(30px, 2vw);
+}
+
+@mixin t-Oscar_Light_41_White() {
+  font-family: $font-family-1;
+  font-weight: 300;
+  font-size: 41px;
+  letter-spacing: 0.03em;
+  line-height: 41px;
   color: $white;
   text-transform: uppercase;
 }
@@ -70,12 +85,67 @@
   text-transform: uppercase;
 }
 
+@mixin t-Oscar_Light_48_White() {
+  font-family: $font-family-1;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: 0.03em;
+  line-height: 55px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+@mixin t-Oscar_Light_94_White() {
+  font-family: $font-family-1;
+  font-weight: 300;
+  font-size: max(94px, 7.5vw);
+  letter-spacing: 0.03em;
+  line-height: max(94px, 7.5vw);
+  color: $white;
+  text-transform: uppercase;
+}
+
 @mixin t-Phemister_Regular_XXLarge_White() {
   color: $white;
   font-family: $font-family-2;
   font-size: max(48px, 7.5vw);
   line-height: max(48px, 7.5vw);
   text-transform: lowercase;
+}
+
+@mixin t-Phemister_Regular_20_White() {
+  font-family: $font-family-2;
+  font-weight: 400;
+  font-size: 20px;
+  color: $white;
+}
+
+@mixin t-Phemister_Regular_24_White() {
+  font-family: $font-family-2;
+  font-weight: 400;
+  font-size: max(24px, 1.66vw);
+  line-height: max(24px, 1.66vw);
+  color: $white;
+}
+
+@mixin t-Phemister_Light_Italic_48_White() {
+  font-family: $font-family-2;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 48px;
+  letter-spacing: 0.03em;
+  line-height: 55px;
+  color: $white;
+}
+
+@mixin t-Phemister_Light_Italic_94_White() {
+  font-family: $font-family-2;
+  font-weight: 300;
+  font-style: italic;
+  font-size: max(94px, 7.5vw);
+  letter-spacing: 0.03em;
+  line-height: max(94px, 7.5vw);
+  color: $white;
 }
 
 @mixin tr-header-1() {
@@ -95,9 +165,41 @@
 }
 
 @mixin tr-headline-1() {
-  @include t-Oscar_Light_30_White();
+  @include t-Oscar_Light_41_White();
 
   @include media-breakpoint-up(lg) {
     @include t-Oscar_Light_114_White();
+  }
+}
+
+@mixin tr-label-1() {
+  @include t-Oscar_Light_30_White();
+
+  @include media-breakpoint-up(lg) {
+    @include t-Oscar_Light_30_White-alt-1();
+  }
+}
+
+@mixin tr-label-2() {
+  @include t-Phemister_Regular_20_White();
+
+  @include media-breakpoint-up(lg) {
+    @include t-Phemister_Regular_24_White();
+  }
+}
+
+@mixin tr-label-3() {
+  @include t-Oscar_Light_48_White();
+
+  @include media-breakpoint-up(lg) {
+    @include t-Oscar_Light_94_White();
+  }
+}
+
+@mixin tr-label-4() {
+  @include t-Phemister_Light_Italic_48_White();
+
+  @include media-breakpoint-up(lg) {
+    @include t-Phemister_Light_Italic_94_White();
   }
 }

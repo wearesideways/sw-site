@@ -1,0 +1,9 @@
+@import '../style/lib';
+
+.primary-text {
+  @include tr-label-3();
+}
+
+.secondary-text {
+  @include tr-label-4();
+}

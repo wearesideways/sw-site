@@ -1,4 +1,5 @@
 import Media from '../components/Media'
+import TextWithMixedFonts from '../components/TextWithMixedFonts'
 import styles from './Hero.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper'
@@ -8,9 +9,41 @@ type Props = {
   slides?: any[]
   headline?: string
   overlayText?: string
+  hasQuote: boolean
+  quoteText?: any[]
+  quoteAuthor?: string
 }
 
-export default function HeroModule({ slides, headline, overlayText }: Props) {
+export default function HeroModule({
+  slides,
+  headline,
+  overlayText,
+  hasQuote,
+  quoteText,
+  quoteAuthor,
+}: Props) {
+  const quoteContent = (
+    <>
+      <div className={styles['quote-wrapper']}>
+        {quoteText &&
+          quoteText.length > 0 &&
+          quoteText.map((elem, index) => (
+            <>
+              <TextWithMixedFonts key={`quote-${index}`} {...elem.line} />
+              {index < quoteText.length - 1 && <br />}
+            </>
+          ))}
+      </div>
+      <p className={styles['quote-author']}>{quoteAuthor}</p>
+    </>
+  )
+  const copyContent = (
+    <>
+      {headline && <h2 className={styles['headline']}>{headline}</h2>}
+      {overlayText && <span className={styles['overlay-text']}>{overlayText}</span>}
+    </>
+  )
+
   return (
     <section className={styles['hero']}>
       <Swiper effect={'fade'} allowTouchMove={slides && slides.length > 1} modules={[EffectFade]}>
@@ -19,7 +52,7 @@ export default function HeroModule({ slides, headline, overlayText }: Props) {
             <SwiperSlide key={`slide-${index}`}>
               <figure className={styles['media-figure']}>
                 <div className={styles['content-container']}>
-                  <h2 className={styles['headline']}>{headline}</h2>
+                  {hasQuote ? quoteContent : copyContent}
                 </div>
 
                 <Media

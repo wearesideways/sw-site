@@ -38,3 +38,26 @@ modules:
         name: overlayText
         required: false
         widget: string
+      - label: Has Quote
+        name: hasQuote
+        widget: boolean
+      - label: Quote Text
+        name: quoteText
+        widget: list
+        min: 1
+        max: 3
+        fields:
+          - label: Line
+            name: line
+            widget: object
+            collapsed: true
+            fields:
+              - label: Start Text
+                name: startText
+                widget: string
+              - label: Middle Text
+                name: middleText
+                widget: string
+              - label: End Text
+                name: endText
+                widget: string

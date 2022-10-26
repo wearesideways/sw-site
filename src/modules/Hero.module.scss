@@ -25,11 +25,16 @@
   .content-container {
     display: flex;
     height: 100vh;
+    padding: 0 30px;
     position: relative;
     z-index: $zindex-2;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 max(80px, 5.55vw);
+    }
   }
 
   .headline {
@@ -39,10 +44,26 @@
     bottom: 0;
     position: absolute;
     text-align: center;
+    transform: translateY(0.08em);
     // mix-blend-mode: difference; // works with background-image
+  }
+
+  .overlay-text {
+    @include tr-label-1();
+  }
+
+  .quote-wrapper {
+    text-align: center;
+  }
+
+  .quote-author {
+    @include tr-label-2();
+
+    margin: 39px 0 0;
+    // mix-blend-mode: difference;
 
     @include media-breakpoint-up(lg) {
-      transform: translateY(10px);
+      margin-top: 34px;
     }
   }
 }
