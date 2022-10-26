@@ -40,3 +40,10 @@ modules:
       - label: 'Column 4 Content'
         name: 'column4content'
         widget: 'object'
+  - slug: overflow-headline-module
+    name: OverflowHeadlineModule
+    label: Overflow Big Headline
+    fields:
+      - label: 'Headline Left'
+        name: 'headline'
+        widget: 'string'
