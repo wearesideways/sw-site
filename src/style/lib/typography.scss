@@ -126,6 +126,20 @@
   }
 }
 
+@mixin tr-big-header-2() {
+  @include t-Oscar_Light_XXLarge_White();
+
+  @include media-breakpoint-up(xl) {
+    font-size: min(8vw, 124px);
+    line-height: min(8vw, 124px);
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: min(9vw, 140px);
+    line-height: min(9vw, 140px);
+  }
+}
+
 @mixin tr-body-2() {
   @include t-Oscar_Light_26_White();
 

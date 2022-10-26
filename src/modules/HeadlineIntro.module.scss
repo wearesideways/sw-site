@@ -9,7 +9,7 @@
 }
 
 .headline {
-  @include t-Oscar_Light_XXLarge_White();
+  @include tr-big-header-2();
 
   padding: 0;
   width: 100%;
@@ -21,16 +21,6 @@
     max-width: none;
     margin: 0 auto;
     text-align: justify;
-  }
-
-  @include media-breakpoint-up(xl) {
-    font-size: min(8vw, 124px);
-    line-height: min(8vw, 124px);
-  }
-
-  @include media-breakpoint-up(xxl) {
-    font-size: min(9vw, 140px);
-    line-height: min(9vw, 140px);
   }
 }
 
