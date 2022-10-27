@@ -95,12 +95,12 @@
   text-transform: uppercase;
 }
 
-@mixin t-Oscar_Light_94_White() {
+@mixin t-Oscar_Light_93_White() {
   font-family: $font-family-1;
   font-weight: 300;
-  font-size: max(94px, 7.5vw);
+  font-size: max(93px, 6.45vw);
   letter-spacing: 0.03em;
-  line-height: max(94px, 7.5vw);
+  line-height: max(93px, 6.45vw);
   color: $white;
   text-transform: uppercase;
 }
@@ -138,13 +138,13 @@
   color: $white;
 }
 
-@mixin t-Phemister_Light_Italic_94_White() {
+@mixin t-Phemister_Light_Italic_93_White() {
   font-family: $font-family-2;
   font-weight: 300;
   font-style: italic;
-  font-size: max(94px, 7.5vw);
+  font-size: max(93px, 6.45vw);
   letter-spacing: 0.03em;
-  line-height: max(94px, 7.5vw);
+  line-height: max(93px, 6.45vw);
   color: $white;
 }
 
@@ -192,7 +192,7 @@
   @include t-Oscar_Light_48_White();
 
   @include media-breakpoint-up(lg) {
-    @include t-Oscar_Light_94_White();
+    @include t-Oscar_Light_93_White();
   }
 }
 
@@ -200,6 +200,6 @@
   @include t-Phemister_Light_Italic_48_White();
 
   @include media-breakpoint-up(lg) {
-    @include t-Phemister_Light_Italic_94_White();
+    @include t-Phemister_Light_Italic_93_White();
   }
 }
