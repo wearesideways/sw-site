@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styles from './OverflowHeadline.module.scss'
 
 type Props = {
@@ -7,22 +7,21 @@ type Props = {
 
 export default function OverflowHeadlineModule({ headline }: Props) {
   const [numberToShow, setNumberToShow] = useState(0)
+  const overFlowRef = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
     const body = document.querySelector('body') as HTMLElement
-    const text = document.querySelector(
-      `.${styles['root']} .${styles['overflow-headline']}`,
-    ) as HTMLElement
-    if (body && text) {
+
+    if (body && overFlowRef?.current) {
       const bodyWidth = body?.offsetWidth
-      const textWidth = text?.offsetWidth
+      const textWidth = overFlowRef.current.offsetWidth
       setNumberToShow(Math.ceil(bodyWidth / textWidth))
     }
   }, [])
 
   return (
     <section className={styles['root']}>
-      <h2 className={styles['overflow-headline']}>
+      <h2 ref={overFlowRef} className={styles['overflow-headline']}>
         <span className={styles['headline-item']}>{headline}</span>
 
         {[...Array(numberToShow).keys()].map((idx) => (
