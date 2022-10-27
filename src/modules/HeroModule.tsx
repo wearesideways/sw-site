@@ -46,7 +46,14 @@ export default function HeroModule({
 
   return (
     <section className={styles['hero']}>
-      <Swiper effect={'fade'} allowTouchMove={slides && slides.length > 1} modules={[EffectFade]}>
+      {/*Replace this with de a11y version*/}
+      <Swiper
+        effect={'fade'}
+        allowTouchMove={slides && slides.length > 1}
+        modules={[EffectFade]}
+        rewind={true}
+        fadeEffect={{ crossFade: true }}
+      >
         {slides &&
           slides.map((slide, index) => (
             <SwiperSlide key={`slide-${index}`}>
