@@ -1,0 +1,44 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.hero {
+  @include module();
+  @include module-spacing-1();
+
+  height: 100vh;
+
+  .media-figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .slide-media {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .content-container {
+    display: flex;
+    height: 100vh;
+    padding: 0 30px;
+    position: relative;
+    z-index: $zindex-2;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 max(80px, 5.55vw);
+    }
+  }
+
+  .overlay-text {
+    color: $white;
+  }
+
+}
