@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.no-divider {
+  margin: 110px auto 100px;
+}
+
 .divider {
   width: 1px;
   height: 60px;
@@ -19,7 +23,7 @@
 
 @media (min-width: 576px) {
   .text-divider-text {
-    padding: 110px 0;
+    padding: 110px 0 140px;
   }
 
   .divider {
