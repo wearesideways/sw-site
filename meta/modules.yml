@@ -61,3 +61,6 @@ modules:
               - label: End Text
                 name: endText
                 widget: string
+      - label: Show Sideways Logo
+        name: showSidewaysLogo
+        widget: boolean

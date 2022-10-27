@@ -35,6 +35,10 @@
     @include media-breakpoint-up(lg) {
       padding: 0 max(80px, 5.55vw);
     }
+
+    &.has-logo {
+      justify-content: flex-start;
+    }
   }
 
   .headline {
@@ -64,6 +68,27 @@
 
     @include media-breakpoint-up(lg) {
       margin-top: 34px;
+    }
+  }
+
+  .site-logo {
+    height: auto;
+    width: 164px;
+    color: $white;
+    margin: 36px 0 71px;
+
+    @include media-breakpoint-up(md) {
+      margin: 86px 0 0;
+      width: 90vw;
+      display: none;
+    }
+
+    &.is-large {
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
     }
   }
 }

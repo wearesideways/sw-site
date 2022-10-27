@@ -3,6 +3,8 @@ import TextWithMixedFonts from '../components/TextWithMixedFonts'
 import styles from './Hero.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper'
+import SidewaysLogo from '../assets/sideways-logo.svg'
+import SidewaysLogoSm from '../assets/sideways-logo-sm.svg'
 import 'swiper/css'
 
 type Props = {
@@ -12,6 +14,7 @@ type Props = {
   hasQuote: boolean
   quoteText?: any[]
   quoteAuthor?: string
+  showSidewaysLogo: boolean
 }
 
 export default function HeroModule({
@@ -21,6 +24,7 @@ export default function HeroModule({
   hasQuote,
   quoteText,
   quoteAuthor,
+  showSidewaysLogo,
 }: Props) {
   const quoteContent = (
     <>
@@ -37,10 +41,18 @@ export default function HeroModule({
       <p className={styles['quote-author']}>{quoteAuthor}</p>
     </>
   )
+
   const copyContent = (
     <>
       {headline && <h2 className={styles['headline']}>{headline}</h2>}
       {overlayText && <span className={styles['overlay-text']}>{overlayText}</span>}
+    </>
+  )
+
+  const logoContent = (
+    <>
+      <SidewaysLogo className={`${styles['site-logo']} ${styles['is-large']}`} />
+      <SidewaysLogoSm className={styles['site-logo']} />
     </>
   )
 
@@ -58,8 +70,8 @@ export default function HeroModule({
           slides.map((slide, index) => (
             <SwiperSlide key={`slide-${index}`}>
               <figure className={styles['media-figure']}>
-                <div className={styles['content-container']}>
-                  {hasQuote ? quoteContent : copyContent}
+                <div className={`${styles['content-container']} ${styles['has-logo']}`}>
+                  {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
                 </div>
 
                 <Media
