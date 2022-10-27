@@ -15,7 +15,7 @@ export default function OverflowHeadlineModule({ headline }: Props) {
     if (body && overFlowRef?.current) {
       const bodyWidth = body?.offsetWidth
       const textWidth = overFlowRef.current.offsetWidth
-      setNumberToShow(Math.ceil(bodyWidth / textWidth))
+      setNumberToShow(Math.ceil(bodyWidth / textWidth) + 1)
     }
   }, [])
 
