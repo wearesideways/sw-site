@@ -56,8 +56,12 @@ export default function HeroModule({
     </>
   )
 
+  const isDefaultModuleHeight = !showSidewaysLogo && !hasQuote
+
   return (
-    <section className={styles['hero']}>
+    <section
+      className={`${styles['hero']} ${isDefaultModuleHeight ? styles['is-default-height'] : ''}`}
+    >
       {/*Replace this with de a11y version*/}
       <Swiper
         effect={'fade'}
@@ -65,12 +69,17 @@ export default function HeroModule({
         modules={[EffectFade]}
         rewind={true}
         fadeEffect={{ crossFade: true }}
+        className={styles['swiper']}
       >
         {slides &&
           slides.map((slide, index) => (
             <SwiperSlide key={`slide-${index}`}>
               <figure className={styles['media-figure']}>
-                <div className={`${styles['content-container']} ${styles['has-logo']}`}>
+                <div
+                  className={`${styles['content-container']} ${
+                    showSidewaysLogo ? styles['has-logo'] : ''
+                  }`}
+                >
                   {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
                 </div>
 

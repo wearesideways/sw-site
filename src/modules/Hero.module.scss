@@ -7,6 +7,16 @@
 
   height: 100vh;
 
+  &.is-default-height {
+    @include media-breakpoint-up(xxl) {
+      max-height: 885px;
+    }
+  }
+
+  .swiper {
+    height: 100%;
+  }
+
   .media-figure {
     margin: 0;
     width: 100%;
@@ -24,7 +34,7 @@
 
   .content-container {
     display: flex;
-    height: 100vh;
+    height: 100%;
     padding: 0 30px;
     position: relative;
     z-index: $zindex-2;
