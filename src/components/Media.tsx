@@ -1,4 +1,5 @@
 import styles from './Media.module.scss'
+import Image from 'next/image'
 
 type Props = {
   img: string
@@ -9,6 +10,8 @@ type Props = {
 }
 
 export default function Media({ img, alt, mediaType, presentational, className }: Props) {
+  const imgFile = require(`../assets/hero-dev/${img}`)
+
   // TODO implement other media types
   if (mediaType === 'img') {
     const swmediaClasses = [
@@ -19,10 +22,11 @@ export default function Media({ img, alt, mediaType, presentational, className }
     ]
 
     return (
-      <img
+      <Image
         className={`${swmediaClasses.join(' ')} ${className ?? ''}`}
-        src={img}
+        src={imgFile}
         alt={alt ?? ''}
+        layout={'fill'}
         {...(presentational && { presentational: 'true', alt: '' })}
       />
     )
