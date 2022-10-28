@@ -6,6 +6,7 @@
   @include module-spacing-1();
 
   height: 100vh;
+  position: relative;
 
   &.is-default-height {
     @include media-breakpoint-up(xxl) {
@@ -32,6 +33,17 @@
     position: absolute;
   }
 
+  .headline {
+    @include tr-headline-1();
+
+    margin: 0;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    transform: translateY(0.08em);
+    // mix-blend-mode: difference; // works with background-image
+  }
+
   .content-container {
     display: flex;
     height: 100%;
@@ -49,17 +61,10 @@
     &.has-logo {
       justify-content: flex-start;
     }
-  }
 
-  .headline {
-    @include tr-headline-1();
-
-    margin: 0;
-    bottom: 0;
-    position: absolute;
-    text-align: center;
-    transform: translateY(0.08em);
-    // mix-blend-mode: difference; // works with background-image
+    &.has-headline .headline {
+      bottom: 64px;
+    }
   }
 
   .overlay-text {
@@ -100,5 +105,27 @@
         display: block;
       }
     }
+  }
+
+  .scroll-down-btn {
+    @include unstyled-btn();
+
+    left: 50%;
+    width: 40px;
+    bottom: 16px;
+    height: 40px;
+    position: absolute;
+    z-index: $zindex-1;
+    transform: translateX(-50%);
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  .arrow-icon {
+    height: 8px;
+    width: 16px;
+    color: $white;
   }
 }

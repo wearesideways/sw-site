@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper'
 import SidewaysLogo from '../assets/sideways-logo.svg'
 import SidewaysLogoSm from '../assets/sideways-logo-sm.svg'
+import ArrowDown from '../assets/arrow-down.svg'
 import 'swiper/css'
 
 type Props = {
@@ -57,6 +58,7 @@ export default function HeroModule({
   )
 
   const isDefaultModuleHeight = !showSidewaysLogo && !hasQuote
+  const hasHeadline = headline && headline.trim().length > 0
 
   return (
     <section
@@ -78,7 +80,7 @@ export default function HeroModule({
                 <div
                   className={`${styles['content-container']} ${
                     showSidewaysLogo ? styles['has-logo'] : ''
-                  }`}
+                  } ${hasHeadline ? styles['has-headline'] : ''}`}
                 >
                   {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
                 </div>
@@ -93,6 +95,10 @@ export default function HeroModule({
             </SwiperSlide>
           ))}
       </Swiper>
+
+      <button className={styles['scroll-down-btn']} type={'button'}>
+        <ArrowDown className={styles['arrow-icon']} />
+      </button>
     </section>
   )
 }
