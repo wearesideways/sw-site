@@ -4,6 +4,10 @@
  * @type {import('next').NextConfig}
  **/
 module.exports = {
+  images: {
+    // testing only
+    unoptimized: true,
+  },
   distDir: 'build',
   pageExtensions: ['tsx'],
   // we do linting and typecheking on CI, no need to do it on every CMS-issued build
