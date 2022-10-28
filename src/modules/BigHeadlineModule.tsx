@@ -7,7 +7,7 @@ type Props = {
   headlineRight: string
 }
 
-export default function OverflowHeadlineModule({ headlineLeft, headlineRight }: Props) {
+export default function BigHeadlineModule({ headlineLeft, headlineRight }: Props) {
   return (
     <section className={styles['root']}>
       <Container>
