@@ -8,11 +8,15 @@ import OverflowHeadlineModule from './OverflowHeadlineModule'
 import { Col, Container, Row } from 'react-bootstrap'
 import classNames from 'classnames'
 
-type HeroItem = {
+type HeroItemProps = {
   slides?: any[]
   overlayText?: string
   subOverlayText?: string
   isFullWidth: boolean
+}
+
+type HeroItem = {
+  heroItem: HeroItemProps
 }
 
 type Props = {
@@ -20,31 +24,18 @@ type Props = {
   isContained: boolean
 }
 
-const HeroItem = ({
-                    slides,
-                    overlayText,
-                    subOverlayText,
-                    isFullWidth,
-                  }: HeroItem) => {
-
-
+const HeroItem = ({ slides, overlayText, subOverlayText, isFullWidth }: HeroItemProps) => {
   const copyContent = (
     <>
-      {overlayText && <OverflowHeadlineModule headline={overlayText} className={styles['overlay-text']}/>}
+      {overlayText && <OverflowHeadlineModule headline={overlayText} />}
       {subOverlayText && <span className={styles['sub-overlay-text']}>{subOverlayText}</span>}
     </>
   )
 
   return (
-
     <Col
       md={isFullWidth ? 12 : 6}
-      className={
-        classNames(
-          styles['hero'],
-          !isFullWidth && styles['is-small'],
-        )
-      }
+      className={classNames(styles['hero'], !isFullWidth && styles['is-small'])}
     >
       <Swiper
         effect={'fade'}
@@ -55,22 +46,20 @@ const HeroItem = ({
         className={styles['swiper']}
       >
         {slides &&
-        slides.map((slide, idx) => (
-          <SwiperSlide key={`slide-${idx}`}>
-            <figure className={styles['media-figure']}>
-              <div className={styles['content-container']}>
-                {copyContent}
-              </div>
+          slides.map((slide, idx) => (
+            <SwiperSlide key={`slide-${idx}`}>
+              <figure className={styles['media-figure']}>
+                <div className={styles['content-container']}>{copyContent}</div>
 
-              <Media
-                key={`slide-media-${idx}`}
-                {...slide.media}
-                presentational={false}
-                className={styles['slide-media']}
-              />
-            </figure>
-          </SwiperSlide>
-        ))}
+                <Media
+                  key={`slide-media-${idx}`}
+                  {...slide.media}
+                  presentational={false}
+                  className={styles['slide-media']}
+                />
+              </figure>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </Col>
   )
@@ -82,10 +71,8 @@ export default function HeroListModule({ isContained, items }: Props) {
       <Container fluid={`${isContained ? 'md' : true}`}>
         <Row className={`${!isContained ? styles['no-gutters'] : ''}`}>
           {items.map((i, idx) => {
-            const isEvery3or4 = (((idx/4) % 4) % 1)  >= 0.5
-            return (
-              <HeroItem key={idx} {...i.heroItem} isFullWidth={!isEvery3or4} />
-            )
+            const isEvery3or4 = ((idx / 4) % 4) % 1 >= 0.5
+            return <HeroItem key={idx} {...i.heroItem} isFullWidth={!isEvery3or4} />
           })}
         </Row>
       </Container>

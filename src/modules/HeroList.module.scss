@@ -2,7 +2,6 @@
 @import '../style/modules';
 
 .root {
-  background: white;
   @include module();
   @include module-spacing-1();
 
@@ -22,6 +21,7 @@
 
     @include media-breakpoint-up(md) {
       --bs-gutter-x: #{$grid-gutter-width};
+
       margin-top: var(--bs-gutter-x);
       padding-left: calc(var(--bs-gutter-x) * 0.5);
       padding-right: calc(var(--bs-gutter-x) * 0.5);
@@ -46,9 +46,9 @@
 
       top: 0;
       bottom: 0;
-      z-index: 1;
       content: '';
       opacity: 0;
+      z-index: $zindex-1;
       position: absolute;
       background-color: $black;
       left: calc(var(--bs-gutter-x) * 0.5);
@@ -95,11 +95,6 @@
       flex-direction: column;
       justify-content: center;
     }
-
-    .overlay-text {
-      color: $white;
-    }
-
   }
 
   .no-gutters {
@@ -107,7 +102,11 @@
 
     .hero:not(.is-small) {
       padding: 0;
+
+      &::after {
+        left: 0;
+        right: 0;
+      }
     }
   }
-
 }
