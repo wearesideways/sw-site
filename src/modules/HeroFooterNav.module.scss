@@ -17,3 +17,11 @@
     }
   }
 }
+
+.hero-item {
+  margin: 0;
+
+  @include media-breakpoint-down(md) {
+    height: 50vh;
+  }
+}
