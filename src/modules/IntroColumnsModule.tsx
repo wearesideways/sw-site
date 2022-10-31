@@ -50,7 +50,7 @@ export default function IntroColumnsModule({
                 styles['secondary-column-type'],
               )}
             >
-              <h2 className={styles['title']}>{column2title}</h2>
+              <h3 className={styles['title']}>{column2title}</h3>
               <ul className={styles['description']}>
                 {column2content.length &&
                   column2content.map((item, idx) => <li key={idx}>{item}</li>)}
@@ -64,7 +64,7 @@ export default function IntroColumnsModule({
                 styles['secondary-column-type'],
               )}
             >
-              <h2 className={styles['title']}>{column3title}</h2>
+              <h3 className={styles['title']}>{column3title}</h3>
               <ul className={styles['description']}>
                 {column3content.length &&
                   column3content.map((item, idx) => <li key={idx}>{item}</li>)}
@@ -78,7 +78,7 @@ export default function IntroColumnsModule({
                 styles['secondary-column-type'],
               )}
             >
-              <h2 className={styles['title']}>{column4title}</h2>
+              <h3 className={styles['title']}>{column4title}</h3>
               <ul className={styles['description']}>
                 {column4content.length &&
                   column4content.map((item, idx) => <li key={idx}>{item}</li>)}
