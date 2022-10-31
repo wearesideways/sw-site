@@ -19,12 +19,31 @@
   line-height: 32px;
 }
 
+@mixin t-Oscar_Light_40_White() {
+  color: $white;
+  font-weight: 300;
+  font-family: $font-family-1;
+  font-size: 40px;
+  line-height: 38px;
+  text-transform: uppercase;
+}
+
 @mixin t-Oscar_Light_45_White() {
   color: $white;
   font-weight: 300;
   font-family: $font-family-1;
   font-size: 45px;
   line-height: 54px;
+}
+
+@mixin t-Oscar_Light_Large_White() {
+  color: $white;
+  font-weight: 300;
+  letter-spacing: 0.7vw;
+  font-family: $font-family-1;
+  font-size: max(105px, 7.5vw);
+  line-height: max(90px, 7.5vw);
+  text-transform: uppercase;
 }
 
 @mixin t-Oscar_Light_XXLarge_White() {
@@ -96,6 +115,28 @@
 
   @include media-breakpoint-up(md) {
     @include t-Oscar_Regular_30_White();
+  }
+}
+
+@mixin tr-big-header-1() {
+  @include t-Oscar_Light_40_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Light_Large_White();
+  }
+}
+
+@mixin tr-big-header-2() {
+  @include t-Oscar_Light_XXLarge_White();
+
+  @include media-breakpoint-up(xl) {
+    font-size: min(8vw, 124px);
+    line-height: min(8vw, 124px);
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: min(9vw, 140px);
+    line-height: min(9vw, 140px);
   }
 }
 

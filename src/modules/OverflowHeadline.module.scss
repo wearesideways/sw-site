@@ -1,0 +1,34 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.root {
+  @include module();
+  @include module-spacing-2();
+
+  width: 100%;
+}
+
+.overflow-headline {
+  @include tr-big-header-1();
+
+  padding: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-indent: -38%;
+  white-space: nowrap;
+  margin: 0 auto 22px;
+  display: inline-block;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0 auto;
+    text-align: justify;
+  }
+}
+
+.headline-item {
+  &::before {
+    content: '—';
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

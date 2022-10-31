@@ -18,3 +18,11 @@
     margin-top: $module-spacing-lg;
   }
 }
+
+@mixin module-spacing-2() {
+  margin-top: $module-spacing-xs;
+
+  @include media-breakpoint-up(md) {
+    margin-top: $module-spacing-md;
+  }
+}
