@@ -1,0 +1,150 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.root {
+  @include module();
+  @include module-spacing-1();
+
+  width: 100%;
+}
+
+.primary-content {
+  @include tr-body-2();
+
+  padding: 0;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 22px;
+
+  @include media-breakpoint-up(sm) {
+    max-width: none;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  &::before {
+    content: '—————';
+    margin-right: 15px;
+    letter-spacing: -6px;
+  }
+}
+
+.columns-content {
+  position: relative;
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+  }
+}
+
+.title {
+  margin: 0 0 15px;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0 0 22px;
+  }
+}
+
+.description {
+  margin: 0 auto;
+  text-align: left;
+
+  @include media-breakpoint-up(sm) {
+    max-width: none;
+  }
+}
+
+.column-content {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 40px;
+
+  @include media-breakpoint-up(sm) {
+    max-width: none;
+  }
+}
+
+.first-column {
+  @include media-breakpoint-up(sm) {
+    width: 40%;
+    margin-right: 2%;
+  }
+
+  .title {
+    @include tr-header-1();
+  }
+
+  .description {
+    @include tr-header-2();
+  }
+}
+
+.second-column {
+  @include media-breakpoint-up(sm) {
+    width: 19%;
+    margin-right: 2%;
+    margin-top: 35px;
+    margin-bottom: 110px;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: 50px;
+  }
+}
+
+.third-column {
+  @include media-breakpoint-up(sm) {
+    width: 21%;
+    margin-right: 2%;
+    margin-top: 35px;
+    margin-bottom: 110px;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: 50px;
+  }
+}
+
+.fourth-column {
+  @include media-breakpoint-up(sm) {
+    width: 20%;
+    margin-top: 35px;
+    margin-bottom: 110px;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: 50px;
+  }
+}
+
+.secondary-column-type {
+  .title {
+    @include t-Phemister_Regular_18_White();
+  }
+
+  .description {
+    @include tr-header-1();
+
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.cta-circle {
+  @include missing-hover();
+  @include t-Oscar_Regular_18_White();
+
+  right: 0;
+  top: 100%;
+  display: flex;
+  border: 1px solid;
+  border-radius: 50%;
+  position: absolute;
+  margin: 0 auto;
+  width: 100px;
+  text-align: center;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}

@@ -9,7 +9,7 @@
 }
 
 .headline {
-  @include t-Oscar_Light_XXLarge_White();
+  @include tr-big-header-2();
 
   padding: 0;
   width: 100%;
@@ -21,16 +21,6 @@
     max-width: none;
     margin: 0 auto;
     text-align: justify;
-  }
-
-  @include media-breakpoint-up(xl) {
-    font-size: min(8vw, 124px);
-    line-height: min(8vw, 124px);
-  }
-
-  @include media-breakpoint-up(xxl) {
-    font-size: min(9vw, 140px);
-    line-height: min(9vw, 140px);
   }
 }
 
@@ -142,14 +132,17 @@
   bottom: 0;
   display: none;
   border: 1px solid;
-  padding: 40px 25px;
   border-radius: 50%;
   position: absolute;
   margin: 0 auto;
-  max-width: 280px;
+  width: 100px;
   text-align: center;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
 
   @include media-breakpoint-up(sm) {
-    display: block;
+    display: flex;
   }
 }
