@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import styles from './hero-overflow-text.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper'
@@ -14,7 +14,7 @@ export type HeroItemProps = {
   overlayText?: string
   showSubOverlay: boolean
   subOverlayText?: string
-  isFullWidth: boolean,
+  isFullWidth: boolean
   cta: {
     href: string
     text: string
@@ -22,11 +22,26 @@ export type HeroItemProps = {
   className: string
 }
 
-export function HeroItem({ slides, overlayText, subOverlayText, isFullWidth, cta, className, showSubOverlay = true }: HeroItemProps) {
+export function HeroItem({
+  slides,
+  overlayText,
+  subOverlayText,
+  isFullWidth,
+  cta,
+  className,
+  showSubOverlay = true,
+}: HeroItemProps) {
   const copyContent = (
     <>
-      {overlayText && <OverflowHeadlineModule className={!showSubOverlay && styles['is-secondary-style']} headline={overlayText} />}
-      {showSubOverlay && subOverlayText && <span className={styles['sub-overlay-text']}>{subOverlayText}</span>}
+      {overlayText && (
+        <OverflowHeadlineModule
+          className={!showSubOverlay && styles['is-secondary-style']}
+          headline={overlayText}
+        />
+      )}
+      {showSubOverlay && subOverlayText && (
+        <span className={styles['sub-overlay-text']}>{subOverlayText}</span>
+      )}
     </>
   )
 
@@ -44,23 +59,23 @@ export function HeroItem({ slides, overlayText, subOverlayText, isFullWidth, cta
         className={styles['swiper']}
       >
         {slides &&
-        slides.map((slide, idx) => (
-          <SwiperSlide key={`slide-${idx}`}>
-            <Link href={cta.href}>
-              <div role="link" aria-label={cta.text} className={styles['slide-link']}>
-                <figure className={styles['media-figure']}>
-                  <div className={styles['content-container']}>{copyContent}</div>
-                  <Media
-                    key={`slide-media-${idx}`}
-                    {...slide.media}
-                    presentational={false}
-                    className={styles['slide-media']}
-                  />
-                </figure>
-              </div>
-            </Link>
-          </SwiperSlide>
-        ))}
+          slides.map((slide, idx) => (
+            <SwiperSlide key={`slide-${idx}`}>
+              <Link href={cta.href}>
+                <div role="link" aria-label={cta.text} className={styles['slide-link']}>
+                  <figure className={styles['media-figure']}>
+                    <div className={styles['content-container']}>{copyContent}</div>
+                    <Media
+                      key={`slide-media-${idx}`}
+                      {...slide.media}
+                      presentational={false}
+                      className={styles['slide-media']}
+                    />
+                  </figure>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </Col>
   )
