@@ -12,14 +12,14 @@ import Link from 'next/link'
 export type HeroItemProps = {
   slides?: any[]
   overlayText?: string
-  showSubOverlay: boolean
+  showSubOverlay?: boolean
   subOverlayText?: string
   isFullWidth: boolean
   cta: {
     href: string
     text: string
   }
-  className: string
+  className?: string
 }
 
 export function HeroItem({
@@ -35,7 +35,7 @@ export function HeroItem({
     <>
       {overlayText && (
         <OverflowHeadlineModule
-          className={!showSubOverlay && styles['is-secondary-style']}
+          className={classNames(!showSubOverlay && styles['is-secondary-style'])}
           headline={overlayText}
         />
       )}

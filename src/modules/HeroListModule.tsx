@@ -3,12 +3,12 @@ import styles from './HeroList.module.scss'
 import { Container, Row } from 'react-bootstrap'
 import { HeroItem, HeroItemProps } from '../components/HeroOverflowText'
 
-type HeroItemProps = {
+type HeroProps = {
   heroItem: HeroItemProps
 }
 
 type Props = {
-  items: HeroItemProps[]
+  items: HeroProps[]
   isContained: boolean
 }
 

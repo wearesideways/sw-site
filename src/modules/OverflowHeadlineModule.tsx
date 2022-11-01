@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 type Props = {
   headline: string
+  className?: string
 }
 
 export default function OverflowHeadlineModule({ headline, className }: Props) {
