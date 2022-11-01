@@ -25,7 +25,7 @@ export type HeroItemProps = {
 export function HeroItem({ slides, overlayText, subOverlayText, isFullWidth, cta, className, showSubOverlay = true }: HeroItemProps) {
   const copyContent = (
     <>
-      {overlayText && <OverflowHeadlineModule headline={overlayText} />}
+      {overlayText && <OverflowHeadlineModule className={!showSubOverlay && styles['is-secondary-style']} headline={overlayText} />}
       {showSubOverlay && subOverlayText && <span className={styles['sub-overlay-text']}>{subOverlayText}</span>}
     </>
   )

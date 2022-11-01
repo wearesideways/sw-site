@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from './HeroFooterNav.module.scss'
-import { Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { HeroItem, HeroItemProps } from '../components/HeroOverflowText'
+import Link from 'next/link'
 
 type Props = {
   label: string
@@ -12,12 +13,27 @@ type Props = {
 export default function HeroFooterNavModule({ label, prevHeroItem, nextHeroItem }: Props) {
   return (
     <section className={styles['root']}>
-      <Container fluid>
-        Prev
+      <Container>
+        <Row>
+          <Col className={styles['nav-controls']}>
+            <Link href={prevHeroItem.cta.href} aria-label={`Previous ${prevHeroItem.cta.text}`}>
+              <span className={styles['nav-control-item']}>
+                Prev
+              </span>
+            </Link>
 
-        {label}
 
-        Next
+            <p className={styles['nav-label']}>
+              {label}
+            </p>
+
+            <Link href={nextHeroItem.cta.href} aria-label={`Next ${nextHeroItem.cta.text}`}>
+              <span className={styles['nav-control-item']}>
+                Next
+              </span>
+            </Link>
+          </Col>
+        </Row>
       </Container>
 
       <Row className={styles['no-gutters']}>

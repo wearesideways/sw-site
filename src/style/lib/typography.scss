@@ -77,6 +77,16 @@
   font-family: $font-family-1;
   font-size: 12px;
   text-transform: uppercase;
+  line-height: 14px;
+}
+
+@mixin t-Oscar_Medium_16_White() {
+  color: $white;
+  font-weight: 500;
+  font-family: $font-family-1;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 19px;
 }
 
 @mixin t-Oscar_Medium_18_White() {
@@ -94,6 +104,13 @@
   line-height: 22.5px;
 }
 
+@mixin t-Phemister_Regular_20_White() {
+  color: $white;
+  font-family: $font-family-2;
+  font-size: 20px;
+  line-height: 30px;
+}
+
 @mixin t-Phemister_Regular_24_White() {
   color: $white;
   font-family: $font-family-2;
@@ -107,6 +124,14 @@
   font-size: max(48px, 7.5vw);
   line-height: max(48px, 7.5vw);
   text-transform: lowercase;
+}
+
+@mixin tr-nav-item() {
+  @include t-Oscar_Medium_12_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Medium_16_White();
+  }
 }
 
 @mixin tr-header-1() {
@@ -152,5 +177,13 @@
 
   @include media-breakpoint-up(md) {
     @include t-Oscar_Light_45_White();
+  }
+}
+
+@mixin tr-body-3() {
+  @include t-Phemister_Regular_20_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Phemister_Regular_24_White();
   }
 }
