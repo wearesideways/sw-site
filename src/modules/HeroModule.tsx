@@ -43,14 +43,12 @@ export default function HeroModule({
   const quoteContent = (
     <>
       <div className={styles['quote-wrapper']}>
-        {quoteText &&
-          quoteText.length > 0 &&
-          quoteText.map((elem, index) => (
-            <>
-              <TextWithMixedFonts key={`quote-${index}`} {...elem.line} />
-              {index < quoteText.length - 1 && <br />}
-            </>
-          ))}
+        {quoteText?.map((elem, index) => (
+          <>
+            <TextWithMixedFonts key={`quote-${index}`} {...elem.line} />
+            {index < quoteText.length - 1 && <br />}
+          </>
+        ))}
       </div>
       <p className={styles['quote-author']}>{quoteAuthor}</p>
     </>
@@ -86,27 +84,26 @@ export default function HeroModule({
         fadeEffect={{ crossFade: true }}
         className={styles['swiper']}
       >
-        {slides &&
-          slides.map((slide, index) => (
-            <SwiperSlide key={`slide-${index}`}>
-              <figure className={styles['media-figure']}>
-                <div
-                  className={`${styles['content-container']} ${
-                    showSidewaysLogo ? styles['has-logo'] : ''
-                  } ${hasHeadline ? styles['has-headline'] : ''}`}
-                >
-                  {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
-                </div>
+        {slides?.map((slide, index) => (
+          <SwiperSlide key={`slide-${index}`}>
+            <figure className={styles['media-figure']}>
+              <div
+                className={`${styles['content-container']} ${
+                  showSidewaysLogo ? styles['has-logo'] : ''
+                } ${hasHeadline ? styles['has-headline'] : ''}`}
+              >
+                {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
+              </div>
 
-                <Media
-                  key={`slide-media-${index}`}
-                  {...slide.media}
-                  presentational={false}
-                  className={styles['slide-media']}
-                />
-              </figure>
-            </SwiperSlide>
-          ))}
+              <Media
+                key={`slide-media-${index}`}
+                {...slide.media}
+                presentational={false}
+                className={styles['slide-media']}
+              />
+            </figure>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <button className={styles['scroll-down-btn']} type={'button'}>
