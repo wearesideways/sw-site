@@ -64,6 +64,10 @@
 
     &.has-headline .headline {
       bottom: 64px;
+
+      @include media-breakpoint-up(md) {
+        bottom: 0;
+      }
     }
   }
 
