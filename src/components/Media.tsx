@@ -1,11 +1,6 @@
+import { MediaTypes } from '../lib/Types'
 import styles from './Media.module.scss'
 import Image from 'next/image'
-
-// TODO add more media types
-enum MediaTypes {
-  IMAGE = 'img',
-  VIDEO = 'video',
-}
 
 type Props = {
   img: string
