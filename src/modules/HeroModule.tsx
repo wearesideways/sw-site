@@ -9,11 +9,23 @@ import ArrowDown from '../assets/arrow-down.svg'
 import 'swiper/css'
 
 type Props = {
-  slides?: any[]
+  slides?: {
+    media: {
+      img: string
+      alt?: string
+      mediaType: string
+    }
+  }[]
   headline?: string
   overlayText?: string
   hasQuote: boolean
-  quoteText?: any[]
+  quoteText?: {
+    line: {
+      startText: string
+      middleText: string
+      endText: string
+    }
+  }[]
   quoteAuthor?: string
   showSidewaysLogo: boolean
 }
