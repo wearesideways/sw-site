@@ -106,7 +106,7 @@ export default function HeroModule({
         ))}
       </Swiper>
 
-      <button className={styles['scroll-down-btn']} type={'button'}>
+      <button className={styles['scroll-down-btn']} type={'button'} aria-label="scroll down">
         <ArrowDown className={styles['arrow-icon']} />
       </button>
     </section>
