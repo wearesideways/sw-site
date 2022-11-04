@@ -12,6 +12,10 @@ $secondary-menu-item-padding-x: 14px;
   height: 100 dvh;
   overflow: auto;
 
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    height: auto;
+  }
+
   .main-menu-item {
     @include missing-hover();
     @include tr-nav-item-1();
@@ -26,10 +30,6 @@ $secondary-menu-item-padding-x: 14px;
 
     color: var(--mobile-menu-text-color) !important;
     padding: 4px $secondary-menu-item-padding-x;
-  }
-
-  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
-    height: auto;
   }
 }
 

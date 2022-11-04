@@ -59,7 +59,8 @@ $zindex-menu: $zindex-fixed + 1;
     height: 28.8px;
     top: -10px;
     right: auto;
-    z-index: auto;
+    // stylelint-disable-next-line scale-unlimited/declaration-strict-value
+    z-index: unset;
   }
 }
 

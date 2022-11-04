@@ -236,7 +236,7 @@
   @include t-Phemister_Regular_20_LH_24_White();
 
   @include media-breakpoint-up(md) {
-    @include t-Phemister_Regular_24_LH_30_White;
+    @include t-Phemister_Regular_24_LH_30_White();
   }
 }
 
