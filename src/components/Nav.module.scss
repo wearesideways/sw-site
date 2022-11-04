@@ -14,6 +14,7 @@ $zindex-menu: $zindex-fixed + 1;
     mix-blend-mode: difference;
     top: $top - 6px;
     left: $padding-x;
+    will-change: visibility, opacity;
 
     @include media-breakpoint-up($main-navbar-expand-breakpoint) {
       display: none;
@@ -50,6 +51,7 @@ $zindex-menu: $zindex-fixed + 1;
   z-index: $zindex-fixed;
   top: $top;
   right: $padding-x;
+  will-change: visibility, opacity;
 
   @include media-breakpoint-up($main-navbar-expand-breakpoint) {
     position: relative;
@@ -69,13 +71,16 @@ $zindex-menu: $zindex-fixed + 1;
     transform: translateX(-50%);
     mix-blend-mode: difference;
     display: flex;
-    top: 31px;
+    top: 41px;
     align-items: baseline;
   }
 }
 
 .tagline {
   @include transition(opacity $transition-duration-md, visibility $transition-duration-md);
+  @include tr-tagline-1();
+
+  will-change: visibility, opacity;
 }
 
 .menu-lg {
@@ -85,9 +90,11 @@ $zindex-menu: $zindex-fixed + 1;
   display: flex;
   flex-direction: row;
   margin: 0 -13px 0 auto;
+  will-change: visibility, opacity;
 
   .menu-lg-item {
     @include missing-hover();
+    @include tr-nav-item-1();
 
     padding: 6px 13px;
   }

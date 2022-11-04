@@ -7,12 +7,14 @@ import NavBox, { MenuItem } from './NavBox'
 import { useNavContext } from './NavContext'
 import { menus } from '../lib/menus'
 import { Container } from 'react-bootstrap'
+import { useRouter } from 'next/router'
 
 type Props = {
   id: string
 }
 
 export default function Nav({ id }: Props) {
+  const { asPath } = useRouter()
   const menuId = `${id}-menu`
   const { logoVisible, navVisible, navExpanded, setNavExpanded } = useNavContext()
 
@@ -39,7 +41,7 @@ export default function Nav({ id }: Props) {
 
       <Container fluid="xxl" className={styles['brand-menu-lg-wrap']}>
         <Link href="/">
-          <a className={styles['brand-link']}>
+          <a className={styles['brand-link']} aria-current={asPath === '/'}>
             <SidewaysLogo
               className={classNames(styles['logo'], logoVisible && styles['is-visible'])}
             />
