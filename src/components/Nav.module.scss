@@ -1,0 +1,113 @@
+@import '../style/lib';
+
+$top: 47px;
+$padding-x: $container-padding-x / 2;
+$zindex-hamburger: $zindex-fixed + 2;
+$zindex-menu: $zindex-fixed + 1;
+
+.root {
+  .hamburger {
+    @include transition(opacity $transition-duration-md, visibility $transition-duration-md);
+
+    position: fixed;
+    z-index: $zindex-hamburger;
+    mix-blend-mode: difference;
+    top: $top - 6px;
+    left: $padding-x;
+
+    @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu {
+  @include transition(opacity $transition-duration-md, visibility $transition-duration-md);
+
+  position: fixed;
+  z-index: $zindex-menu;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  will-change: visibility, opacity;
+  visibility: hidden;
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    display: none;
+  }
+
+  &.is-expanded {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.brand-link {
+  @include transition(opacity $transition-duration-md, visibility $transition-duration-md);
+
+  position: fixed;
+  z-index: $zindex-fixed;
+  top: $top;
+  right: $padding-x;
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    position: relative;
+    margin-right: 26px;
+    height: 28.8px;
+    top: -10px;
+    right: auto;
+    z-index: auto;
+  }
+}
+
+.brand-menu-lg-wrap {
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    position: fixed;
+    z-index: $zindex-fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    mix-blend-mode: difference;
+    display: flex;
+    top: 31px;
+    align-items: baseline;
+  }
+}
+
+.tagline {
+  @include transition(opacity $transition-duration-md, visibility $transition-duration-md);
+}
+
+.menu-lg {
+  @include transition(opacity $transition-duration-md, visibility $transition-duration-md);
+  @include list-unstyled();
+
+  display: flex;
+  flex-direction: row;
+  margin: 0 -13px 0 auto;
+
+  .menu-lg-item {
+    @include missing-hover();
+
+    padding: 6px 13px;
+  }
+}
+
+.tagline,
+.menu-lg,
+.menu-lg .menu-lg-item {
+  @include media-breakpoint-down($main-navbar-expand-breakpoint) {
+    display: none;
+  }
+}
+
+.is-hidden {
+  .hamburger,
+  .mobile-menu,
+  .brand-link,
+  .tagline,
+  .menu-lg {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

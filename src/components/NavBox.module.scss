@@ -1,0 +1,114 @@
+@import '../style/lib';
+
+$main-menu-item-padding-x: 13px;
+$secondary-menu-item-padding-x: 14px;
+
+.root {
+  width: 100%;
+  width: 100 dvw;
+  background-color: var(--mobile-menu-bg-color);
+  color: var(--mobile-menu-text-color);
+  height: 100vh;
+  height: 100 dvh;
+
+  .main-menu-item {
+    @include missing-hover();
+
+    padding: 6px $main-menu-item-padding-x;
+  }
+
+  .secondary-menu-item {
+    @include missing-hover();
+
+    padding: 4px $secondary-menu-item-padding-x;
+  }
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    height: auto;
+  }
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 41px;
+    padding-bottom: 30px;
+  }
+}
+
+.theme-dark {
+  --mobile-menu-bg-color: #{$black};
+  --mobile-menu-text-color: #{$white};
+}
+
+.theme-light {
+  --mobile-menu-bg-color: #{$white};
+  --mobile-menu-text-color: #{$black};
+}
+
+.menu-logo {
+  margin-top: 36px;
+  height: 52px;
+  width: 100%;
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    width: 100%;
+    height: auto;
+    margin-top: 33px;
+    margin-bottom: 44px;
+  }
+}
+
+.tagline {
+  margin-top: 14px;
+  text-transform: uppercase;
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    order: -1;
+    margin: 0;
+  }
+}
+
+.main-menu {
+  @include list-unstyled();
+
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    order: -1;
+    margin: 0 (-$main-menu-item-padding-x) 0 0;
+    justify-content: flex-end;
+  }
+}
+
+.location {
+  margin: 0;
+}
+
+.secondary-menu {
+  @include list-unstyled();
+
+  margin-top: 35px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+
+  @include media-breakpoint-up($main-navbar-expand-breakpoint) {
+    margin: 0 (-$secondary-menu-item-padding-x) 0 0;
+    justify-content: flex-end;
+  }
+}
