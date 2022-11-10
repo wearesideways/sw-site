@@ -1,6 +1,10 @@
 @import '../style/lib';
 @import '../style/modules';
 
+.swiper {
+  height: 100%;
+}
+
 .hero {
   @include module();
   @include module-spacing-1();
@@ -12,10 +16,6 @@
     @include media-breakpoint-up(xxl) {
       max-height: 885px;
     }
-  }
-
-  .swiper {
-    height: 100%;
   }
 
   .media-figure {
