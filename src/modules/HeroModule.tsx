@@ -7,6 +7,7 @@ import { EffectFade } from 'swiper'
 import SidewaysLogo from '../assets/sideways-logo.svg'
 import SidewaysLogoSm from '../assets/sideways-logo-sm.svg'
 import ArrowDown from '../assets/arrow-down.svg'
+import classNames from 'classnames'
 import 'swiper/css'
 
 type Props = {
@@ -63,7 +64,7 @@ export default function HeroModule({
 
   const logoContent = (
     <>
-      <SidewaysLogo className={`${styles['site-logo']} ${styles['is-large']}`} />
+      <SidewaysLogo className={classNames(styles['site-logo'], styles['is-large'])} />
       <SidewaysLogoSm className={styles['site-logo']} />
     </>
   )
@@ -73,7 +74,10 @@ export default function HeroModule({
 
   return (
     <section
-      className={`${styles['hero']} ${isDefaultModuleHeight ? styles['is-default-height'] : ''}`}
+      className={classNames(
+        styles['hero'],
+        isDefaultModuleHeight ? styles['is-default-height'] : '',
+      )}
     >
       {/*Replace this with de a11y version*/}
       <Swiper
@@ -88,9 +92,11 @@ export default function HeroModule({
           <SwiperSlide key={`slide-${index}`}>
             <figure className={styles['media-figure']}>
               <div
-                className={`${styles['content-container']} ${
-                  showSidewaysLogo ? styles['has-logo'] : ''
-                } ${hasHeadline ? styles['has-headline'] : ''}`}
+                className={classNames(
+                  styles['content-container'],
+                  showSidewaysLogo ? styles['has-logo'] : '',
+                  hasHeadline ? styles['has-headline'] : '',
+                )}
               >
                 {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
               </div>

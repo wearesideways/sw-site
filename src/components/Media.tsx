@@ -1,6 +1,7 @@
 import { MediaTypes } from '../lib/Types'
 import styles from './Media.module.scss'
 import Image from 'next/image'
+import classNames from 'classnames'
 
 type Props = {
   img: string
@@ -15,16 +16,15 @@ export default function Media({ img, alt, mediaType, presentational, className }
 
   // TODO implement other media types
   if (mediaType === 'img') {
-    const swmediaClasses = [
-      'swmedia',
-      styles['swmedia-img'],
-      styles['swmedia-lg'],
-      styles['swmedia-object'],
-    ]
-
     return (
       <Image
-        className={`${swmediaClasses.join(' ')} ${className ?? ''}`}
+        className={classNames(
+          'swmedia',
+          styles['swmedia-img'],
+          styles['swmedia-lg'],
+          styles['swmedia-object'],
+          className ?? '',
+        )}
         src={imgFile}
         alt={alt ?? ''}
         layout={'fill'}
