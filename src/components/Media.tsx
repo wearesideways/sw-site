@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function Media({ img, alt, mediaType, presentational, className }: Props) {
-  const imgFile = require(`../assets/hero-dev/${img}`)
+  const imgFile = require(`../../public/images/${img}`)
 
   // TODO implement other media types
   if (mediaType === 'img') {
