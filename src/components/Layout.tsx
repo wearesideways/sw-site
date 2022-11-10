@@ -1,56 +1,76 @@
 import Head from 'next/head'
-import Navigation from './Navigation'
-import { ReactNode } from 'react'
+import { memo, ReactNode, useMemo, useState } from 'react'
+import Nav from './Nav'
+import { NavContextProvider } from './NavContext'
+import Footer from './Footer'
 
 type Props = {
   children: ReactNode
+  defaultShowLogo: boolean
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, defaultShowLogo }: Props) {
+  const [navExpanded, setNavExpanded] = useState(false)
+  const [navVisible, setNavVisible] = useState(true)
+  const [logoVisibleCount, setLogoVisibleCount] = useState(defaultShowLogo ? 1 : 0)
+
+  const navContextValue = useMemo(
+    () => ({
+      logoVisible: logoVisibleCount > 0,
+      setLogoVisible: (isVisible: boolean) => {
+        setLogoVisibleCount((count) => count + (isVisible ? 1 : -1))
+      },
+      navVisible,
+      setNavVisible,
+      navExpanded,
+      setNavExpanded,
+    }),
+    [navVisible, logoVisibleCount, navExpanded],
+  )
+
   return (
-    <div className="root">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="apple-touch-icon" href="/icon.png" />
-        <meta name="theme-color" content="#fff" />
-        <link
-          rel="preload"
-          href="/fonts/FHOscar-Light.otf"
-          as="font"
-          crossOrigin=""
-          type="opentype"
-        />
-        <link
-          rel="preload"
-          href="/fonts/FHOscar-Regular.otf"
-          as="font"
-          crossOrigin=""
-          type="opentype"
-        />
-        <link
-          rel="preload"
-          href="/fonts/FHOscar-Medium.otf"
-          as="font"
-          crossOrigin=""
-          type="opentype"
-        />
-        <link
-          rel="preload"
-          href="/fonts/FHPhemisterDisplay-LightItalic.otf"
-          as="font"
-          crossOrigin=""
-          type="opentype"
-        />
-        <link
-          rel="preload"
-          href="/fonts/FHPhemisterDisplay-Regular.otf"
-          as="font"
-          crossOrigin=""
-          type="opentype"
-        />
-        <style>{`
+    <>
+      <HeadStuff />
+      <NavContextProvider value={navContextValue}>
+        <Nav id="main-nav" />
+        <main>{children}</main>
+        <Footer />
+      </NavContextProvider>
+    </>
+  )
+}
+
+const HeadStuff = memo(() => (
+  <Head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <meta name="theme-color" content="#fff" />
+    <link rel="preload" href="/fonts/FHOscar-Light.otf" as="font" crossOrigin="" type="opentype" />
+    <link
+      rel="preload"
+      href="/fonts/FHOscar-Regular.otf"
+      as="font"
+      crossOrigin=""
+      type="opentype"
+    />
+    <link rel="preload" href="/fonts/FHOscar-Medium.otf" as="font" crossOrigin="" type="opentype" />
+    <link
+      rel="preload"
+      href="/fonts/FHPhemisterDisplay-LightItalic.otf"
+      as="font"
+      crossOrigin=""
+      type="opentype"
+    />
+    <link
+      rel="preload"
+      href="/fonts/FHPhemisterDisplay-Regular.otf"
+      as="font"
+      crossOrigin=""
+      type="opentype"
+    />
+    <style>{`
           @font-face {
             font-family: 'FH Oscar';
             src: url('/fonts/FHOscar-Light.otf') format('opentype');
@@ -78,11 +98,7 @@ export default function Layout({ children }: Props) {
             font-weight: 400;
           }
         `}</style>
-      </Head>
-      {/*<nav>*/}
-      {/*  <Navigation />*/}
-      {/*</nav>*/}
-      <main>{children}</main>
-    </div>
-  )
-}
+  </Head>
+))
+
+HeadStuff.displayName = 'HeadStuff'

@@ -18,14 +18,14 @@ $zindex-2: 2;
 $zindex-3: 3;
 
 // Transitions
-$transition-duration-sm: 180ms;
-$transition-duration-md: 300ms;
-$transition-duration-lg: 500ms;
+$transition-duration-sm: 140ms;
+$transition-duration-md: 280ms;
+$transition-duration-lg: 480ms;
 
 // Nav
 $main-navbar-height-sm: 60px;
 $main-navbar-height-lg: 100px;
-$main-navbar-expand-breakpoint: xl;
+$main-navbar-expand-breakpoint: lg;
 
 // Modules
 $module-spacing-xs: 90px;
@@ -81,8 +81,8 @@ $enable-gradients: false;
 $enable-shadows: false;
 
 // Grid
-$container-padding-x: 23px;
-$grid-gutter-width: 26px;
+$container-padding-x: 48px;
+$grid-gutter-width: 24px;
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -96,7 +96,7 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1338px + $container-padding-x * 2,
+  xxl: 1740px + $container-padding-x * 2,
 );
 
 // Fonts
