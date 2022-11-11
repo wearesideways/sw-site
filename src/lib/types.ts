@@ -14,3 +14,11 @@ export interface ActionPageLink {
 export type Action = ActionEternalLink | ActionPageLink
 
 export type MenuAction = Action & { current?: boolean }
+
+export enum MediaTypes {
+  IMAGE = 'img',
+  HLS_VIDEO = 'hls',
+  MP4_URL = 'mp4',
+  YOUTUBE = 'youtube',
+  VIMEO = 'vimeo',
+}
