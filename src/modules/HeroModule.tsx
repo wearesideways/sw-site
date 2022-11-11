@@ -41,12 +41,12 @@ export default function HeroModule({
   quoteAuthor,
   showSidewaysLogo,
 }: Props) {
-  const quoteContent = (
+  const quoteContent = (prefix: string) => (
     <>
       <div className={styles['quote-wrapper']}>
         {quoteText?.map((elem, index) => (
           <>
-            <TextWithMixedFonts key={`quote-${index}`} {...elem.line} />
+            <TextWithMixedFonts key={`${prefix}_quote-${index}`} {...elem.line} />
             {index < quoteText.length - 1 && <br />}
           </>
         ))}
@@ -98,7 +98,11 @@ export default function HeroModule({
                   hasHeadline ? styles['has-headline'] : '',
                 )}
               >
-                {showSidewaysLogo ? logoContent : hasQuote ? quoteContent : copyContent}
+                {showSidewaysLogo
+                  ? logoContent
+                  : hasQuote
+                  ? quoteContent(`slide-${index}`)
+                  : copyContent}
               </div>
 
               <Media
