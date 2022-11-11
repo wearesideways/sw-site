@@ -35,7 +35,7 @@ export default function PostLayout({
   const authorName = getAuthor(author)!.name
 
   return (
-    <Layout>
+    <Layout defaultShowLogo={true}>
       <BasicMeta
         url={`/posts/${slug}`}
         title={title}

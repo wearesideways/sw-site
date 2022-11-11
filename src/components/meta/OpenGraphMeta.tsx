@@ -7,6 +7,7 @@ type Props = {
   description?: string
   image?: string
 }
+
 export default function OpenGraphMeta({ url, title, description, image }: Props) {
   return (
     <Head>

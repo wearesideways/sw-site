@@ -1,0 +1,61 @@
+@import '../style/lib';
+
+.root {
+  @include unstyled-btn();
+
+  padding: 11px 11px 9px;
+  margin-left: -11px;
+}
+
+.bar1 {
+  width: 22px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.bar2 {
+  display: block;
+  margin-top: -2px;
+  top: 2px;
+
+  &,
+  &::before,
+  &::after {
+    @include transition(transform $transition-duration-md, opacity $transition-duration-md);
+
+    width: 22px;
+    height: 3px;
+    background-color: $white;
+    position: absolute;
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    will-change: transform, opacity;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+  }
+
+  &::before {
+    top: 8px;
+  }
+
+  &::after {
+    top: 16px;
+  }
+
+  &.is-expanded {
+    transform: translate3d(0, 8px, 0) rotate(45deg);
+
+    &::before {
+      transform: rotate(-45deg) translate3d(-5.7143px, -6px, 0);
+      opacity: 0;
+    }
+
+    &::after {
+      transform: translate3d(0, -16px, 0) rotate(-90deg);
+    }
+  }
+}

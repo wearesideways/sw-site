@@ -31,31 +31,29 @@ export default function PageLayout({
   const keywords = tags.map((it) => getTag(it)!.name)
   const authorName = getAuthor(author)!.name
 
+  // TODO set to false if homepage hero (with logo) is the first module
+  // use useNavContext to set/unset the logo visibility later
+  const defaultShowLogo = true
+
   return (
-    <Layout>
-      <BasicMeta
-        url={`/pages/${slug}`}
-        title={title}
-        keywords={keywords}
-        description={description}
-      />
-      <TwitterCardMeta url={`/pages/${slug}`} title={title} description={description} />
-      <OpenGraphMeta url={`/pages/${slug}`} title={title} description={description} />
+    <Layout defaultShowLogo={defaultShowLogo}>
+      <BasicMeta url={`/${slug}`} title={title} keywords={keywords} description={description} />
+      <TwitterCardMeta url={`/${slug}`} title={title} description={description} />
+      <OpenGraphMeta url={`/${slug}`} title={title} description={description} />
       <JsonLdMeta
-        url={`/pages/${slug}`}
+        url={`/${slug}`}
         title={title}
         keywords={keywords}
         date={date}
         author={authorName}
         description={description}
       />
-      <div>
+      <>
         {modules!.map((it, i) => {
           const { _type, ...props } = it
           return <ModuleRenderer key={i} module={getModule(_type)!} {...props} />
         })}
-        <footer>Space footer</footer>
-      </div>
+      </>
     </Layout>
   )
 }

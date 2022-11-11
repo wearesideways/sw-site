@@ -79,17 +79,68 @@
   text-transform: uppercase;
 }
 
-@mixin t-Oscar_Medium_18_White() {
+@mixin t-Oscar_Medium_12_LS06_LH_14_White() {
+  color: $white;
+  font-weight: 500;
+  font-family: $font-family-1;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+}
+
+@mixin t-Oscar_Medium_16_LS06_LH_19_White() {
+  color: $white;
+  font-weight: 500;
+  font-family: $font-family-1;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 19px;
+  letter-spacing: 0.06em;
+}
+
+@mixin t-Oscar_Medium_18_LS06_LH_22_White() {
   color: $white;
   font-weight: 500;
   font-family: $font-family-1;
   font-size: 18px;
   text-transform: uppercase;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+}
+
+@mixin t-Oscar_Medium_18_White() {
+  color: $white;
+  font-family: $font-family-1;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+@mixin t-Oscar_Medium_10_LS06_LN12_White() {
+  color: $white;
+  font-family: $font-family-1;
+  font-weight: 500;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 12px;
+}
+
+@mixin t-Oscar_Medium_12_LS06_LN14_Black() {
+  color: $white;
+  font-family: $font-family-1;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 14px;
 }
 
 @mixin t-Phemister_Regular_18_White() {
   color: $white;
   font-family: $font-family-2;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22.5px;
 }
@@ -152,9 +203,34 @@
 @mixin t-Phemister_Regular_XXLarge_White() {
   color: $white;
   font-family: $font-family-2;
+  font-weight: 400;
   font-size: max(48px, 7.5vw);
   line-height: max(48px, 7.5vw);
   text-transform: lowercase;
+}
+
+@mixin t-Phemister_Regular_20_LH_30_White() {
+  color: $white;
+  font-family: $font-family-2;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+@mixin t-Phemister_Regular_20_LH_24_White() {
+  color: $white;
+  font-family: $font-family-2;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin t-Phemister_Regular_24_LH_30_White() {
+  color: $white;
+  font-family: $font-family-2;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
 }
 
 @mixin t-Phemister_Regular_20_White() {
@@ -275,5 +351,45 @@
 
   @include media-breakpoint-up(lg) {
     @include t-Phemister_Light_Italic_93_White();
+  }
+}
+
+@mixin tr-tagline-1() {
+  @include t-Oscar_Medium_12_LS06_LH_14_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Medium_18_LS06_LH_22_White();
+  }
+}
+
+@mixin tr-tagline-2() {
+  @include t-Phemister_Regular_20_LH_24_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Phemister_Regular_24_LH_30_White();
+  }
+}
+
+@mixin tr-nav-item-1() {
+  @include t-Phemister_Regular_18_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Phemister_Regular_24_LH_30_White();
+  }
+}
+
+@mixin tr-nav-item-2() {
+  @include t-Oscar_Medium_12_LS06_LH_14_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Medium_16_LS06_LH_19_White();
+  }
+}
+
+@mixin tr-sup-1() {
+  @include t-Oscar_Medium_10_LS06_LN12_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Medium_12_LS06_LN14_Black();
   }
 }
