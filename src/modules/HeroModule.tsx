@@ -32,9 +32,10 @@ type Props = {
     }
   }[]
   showSidewaysLogo: boolean
+  isFullHeight: boolean
 }
 
-export default function HeroModule({ slides, showSidewaysLogo }: Props) {
+export default function HeroModule({ slides, showSidewaysLogo, isFullHeight }: Props) {
   const quoteContent = (prefix: string, quoteText?: any[], quoteAuthor?: string) => (
     <div className={styles['quotes-container']}>
       <div className={styles['quote-wrapper']}>
@@ -64,16 +65,9 @@ export default function HeroModule({ slides, showSidewaysLogo }: Props) {
     </>
   )
 
-  // TODO remove hardcoded
-  // const isDefaultModuleHeight = !showSidewaysLogo && !slide.hasQuote
-  const isDefaultModuleHeight = false
-
   return (
     <section
-      className={classNames(
-        styles['hero'],
-        isDefaultModuleHeight ? styles['is-default-height'] : '',
-      )}
+      className={classNames(styles['hero'], !isFullHeight ? styles['is-default-height'] : '')}
     >
       {/*Replace this with de a11y version*/}
       <Swiper
