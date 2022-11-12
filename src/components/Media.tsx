@@ -1,4 +1,4 @@
-import { MediaTypes } from '../lib/Types'
+import { MediaTypes } from '../lib/types'
 import styles from './Media.module.scss'
 import Image from 'next/image'
 import classNames from 'classnames'

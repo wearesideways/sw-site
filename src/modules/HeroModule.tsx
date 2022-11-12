@@ -1,4 +1,4 @@
-import { MediaTypes } from '../lib/Types'
+import { MediaTypes } from '../lib/types'
 import Media from '../components/Media'
 import TextWithMixedFonts from '../components/TextWithMixedFonts'
 import styles from './Hero.module.scss'
