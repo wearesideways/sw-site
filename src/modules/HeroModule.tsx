@@ -12,37 +12,31 @@ import 'swiper/css'
 
 type Props = {
   slides?: {
-    media: {
-      img: string
-      alt?: string
-      mediaType: MediaTypes
+    slide: {
+      media: {
+        img: string
+        alt?: string
+        mediaType: MediaTypes
+      }
+      headline?: string
+      overlayText?: string
+      hasQuote: boolean
+      quoteText?: {
+        line: {
+          startText: string
+          middleText: string
+          endText: string
+        }
+      }[]
+      quoteAuthor?: string
     }
   }[]
-  headline?: string
-  overlayText?: string
-  hasQuote: boolean
-  quoteText?: {
-    line: {
-      startText: string
-      middleText: string
-      endText: string
-    }
-  }[]
-  quoteAuthor?: string
   showSidewaysLogo: boolean
 }
 
-export default function HeroModule({
-  slides,
-  headline,
-  overlayText,
-  hasQuote,
-  quoteText,
-  quoteAuthor,
-  showSidewaysLogo,
-}: Props) {
-  const quoteContent = (prefix: string) => (
-    <>
+export default function HeroModule({ slides, showSidewaysLogo }: Props) {
+  const quoteContent = (prefix: string, quoteText?: any[], quoteAuthor?: string) => (
+    <div className={styles['quotes-container']}>
       <div className={styles['quote-wrapper']}>
         {quoteText?.map((elem, index) => (
           <>
@@ -52,25 +46,27 @@ export default function HeroModule({
         ))}
       </div>
       <p className={styles['quote-author']}>{quoteAuthor}</p>
-    </>
+    </div>
   )
 
-  const copyContent = (
+  const copyContent = (headline?: string, overlayText?: string) => (
     <>
-      {headline && <h2 className={styles['headline']}>{headline}</h2>}
-      {overlayText && <span className={styles['overlay-text']}>{overlayText}</span>}
+      {headline && (
+        <div className={styles['headline-container']}>
+          <h2 className={styles['headline']}>{headline}</h2>
+        </div>
+      )}
+      {overlayText && (
+        <div className={styles['overlay-container']}>
+          <span className={styles['overlay-text']}>{overlayText}</span>
+        </div>
+      )}
     </>
   )
 
-  const logoContent = (
-    <>
-      <SidewaysLogo className={classNames(styles['site-logo'], styles['is-large'])} />
-      <SidewaysLogoSm className={styles['site-logo']} />
-    </>
-  )
-
-  const isDefaultModuleHeight = !showSidewaysLogo && !hasQuote
-  const hasHeadline = headline && headline.trim().length > 0
+  // TODO remove hardcoded
+  // const isDefaultModuleHeight = !showSidewaysLogo && !slide.hasQuote
+  const isDefaultModuleHeight = false
 
   return (
     <section
@@ -88,33 +84,32 @@ export default function HeroModule({
         fadeEffect={{ crossFade: true }}
         className={styles['swiper']}
       >
-        {slides?.map((slide, index) => (
-          <SwiperSlide key={`slide-${index}`}>
-            <figure className={styles['media-figure']}>
-              <div
-                className={classNames(
-                  styles['content-container'],
-                  showSidewaysLogo ? styles['has-logo'] : '',
-                  hasHeadline ? styles['has-headline'] : '',
-                )}
-              >
-                {showSidewaysLogo
-                  ? logoContent
-                  : hasQuote
-                  ? quoteContent(`slide-${index}`)
-                  : copyContent}
-              </div>
+        {slides?.map(({ slide }, index) => {
+          return (
+            <SwiperSlide key={`slide-${index}`}>
+              <figure className={styles['media-figure']}>
+                {slide.hasQuote
+                  ? quoteContent(`slide-${index}`, slide.quoteText, slide.quoteAuthor)
+                  : copyContent(slide.headline, slide.overlayText)}
 
-              <Media
-                key={`slide-media-${index}`}
-                {...slide.media}
-                presentational={false}
-                className={styles['slide-media']}
-              />
-            </figure>
-          </SwiperSlide>
-        ))}
+                <Media
+                  key={`slide-media-${index}`}
+                  {...slide.media}
+                  presentational={false}
+                  className={styles['slide-media']}
+                />
+              </figure>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
+
+      {showSidewaysLogo && (
+        <div className={styles['logo-container']}>
+          <SidewaysLogo className={classNames(styles['site-logo'], styles['is-large'])} />
+          <SidewaysLogoSm className={styles['site-logo']} />
+        </div>
+      )}
 
       <button className={styles['scroll-down-btn']} type={'button'} aria-label="scroll down">
         <ArrowDown className={styles['arrow-icon']} />
