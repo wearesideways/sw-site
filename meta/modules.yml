@@ -57,3 +57,6 @@ modules:
       - label: 'Headline Right'
         name: 'headlineRight'
         widget: 'string'
+  - slug: projects-module
+    name: ProjectsModule
+    label: Projects Grid
