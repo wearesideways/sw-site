@@ -14,3 +14,9 @@ export interface ActionPageLink {
 export type Action = ActionEternalLink | ActionPageLink
 
 export type MenuAction = Action & { current?: boolean }
+
+export enum MediaTypes {
+  IMAGE = 'img',
+  MP4_URL = 'mp4',
+  // TODO define video formats to use
+}

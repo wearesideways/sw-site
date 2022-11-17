@@ -1,0 +1,157 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.hero {
+  @include module();
+  @include module-spacing-1();
+
+  height: 100vh;
+  position: relative;
+
+  &.is-default-height {
+    @include media-breakpoint-up(xxl) {
+      max-height: 885px;
+    }
+  }
+}
+
+.swiper {
+  height: 100%;
+}
+
+.media-figure {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide-media {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.headline-container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: $zindex-1;
+  mix-blend-mode: difference;
+}
+
+.headline {
+  @include tr-headline-1();
+
+  margin: 0;
+  width: 100%;
+  bottom: 64px;
+  position: absolute;
+  text-align: center;
+  transform: translateY(0.08em);
+
+  @include media-breakpoint-up(md) {
+    bottom: 0;
+  }
+}
+
+.overlay-text {
+  @include tr-label-1();
+}
+
+.quotes-container {
+  height: 100%;
+  display: flex;
+  padding: 0 30px;
+  position: relative;
+  z-index: $zindex-1;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  mix-blend-mode: difference;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 max(80px, 5.55vw);
+  }
+}
+
+.quote-wrapper {
+  text-align: center;
+}
+
+.quote-author {
+  @include tr-label-2();
+
+  margin: 39px 0 0;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 34px;
+  }
+}
+
+.overlay-container,
+.logo-container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  z-index: $zindex-1;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-container {
+  @include media-breakpoint-up(md) {
+    justify-content: flex-start;
+  }
+}
+
+.site-logo {
+  height: auto;
+  width: 164px;
+  color: $white;
+  margin: 36px 0 71px;
+
+  @include media-breakpoint-up(md) {
+    margin: 86px 0 0;
+    width: 90vw;
+    display: none;
+  }
+
+  &.is-large {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+}
+
+.scroll-down-btn {
+  @include unstyled-btn();
+
+  left: 50%;
+  width: 40px;
+  bottom: 16px;
+  height: 40px;
+  position: absolute;
+  z-index: $zindex-1;
+  transform: translateX(-50%);
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.arrow-icon {
+  height: 8px;
+  width: 16px;
+  color: $white;
+}
