@@ -30,3 +30,6 @@ npm-debug.log*
 .idea/dbnavigator.xml
 .idea/misc.xml
 .idea/git_toolbox_prj.xml
+
+# Local Netlify folder
+.netlify

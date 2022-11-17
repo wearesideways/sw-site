@@ -12,6 +12,31 @@ local_backend:
   # when using a custom proxy server port
   url: http://localhost:8081/api/v1
 
+let_cta_fields: &CTA_FIELDS
+  - label: Page Link
+    name: page_link
+    widget: object
+    summary: '{{fields.label}}'
+    fields:
+      - { label: Label, name: label, widget: string }
+      - {
+          label: Page,
+          name: page,
+          widget: relation,
+          collection: pages,
+          searchFields: [title],
+          valueField: slug,
+          displayFields: [title],
+        }
+  - label: External Link
+    name: external_link
+    widget: object
+    summary: '{{fields.label}}'
+    fields:
+      - { label: Label, name: label, widget: string }
+      - { label: URL, name: path, widget: string }
+      - { label: Open in New Tab, name: openInNewTab, widget: boolean, default: true }
+
 collections:
   - name: 'config'
     label: 'Config'
@@ -112,6 +137,21 @@ collections:
                 name: 'name'
                 widget: 'string'
                 hint: 'Module name for displaying on the site'
+      - name: menus
+        label: Navigation
+        file: meta/navigation.json
+        description: 'Navigation menus'
+        fields:
+          - label: Main Menu Items
+            label_singular: Menu Item
+            name: mainMenu
+            widget: list
+            types: *CTA_FIELDS
+          - label: Footer Menu Items
+            label_singular: Item Items
+            name: footerMenu
+            widget: list
+            types: *CTA_FIELDS
 
   - name: 'posts'
     label: 'Posts'

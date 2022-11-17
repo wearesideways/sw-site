@@ -1,0 +1,42 @@
+{
+  "mainMenu": [
+    {
+      "type": "page_link",
+      "label": "Work",
+      "page": "module-catalog"
+    },
+    {
+      "type": "page_link",
+      "label": "Contact",
+      "page": "module-catalog"
+    },
+    {
+      "type": "page_link",
+      "label": "Contact",
+      "page": "module-catalog"
+    },
+    {
+      "type": "external_link",
+      "openInNewTab": true,
+      "label": "Store",
+      "path": "https://google.com"
+    }
+  ],
+  "footerMenu": [
+    {
+      "type": "page_link",
+      "label": "Careers",
+      "page": "module-catalog"
+    },
+    {
+      "type": "page_link",
+      "label": "Accessibility ",
+      "page": "module-catalog"
+    },
+    {
+      "type": "page_link",
+      "label": "Privacy",
+      "page": "module-catalog"
+    }
+  ]
+}

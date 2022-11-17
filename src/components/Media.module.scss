@@ -26,11 +26,3 @@
 .swmedia-video .swmedia-object:not([autoplay]) {
   object-fit: contain;
 }
-
-// Use this to target actual media tags (img, video)
-@mixin media-object-selector() {
-  &.swmedia-object,
-  .swmedia-object {
-    @content;
-  }
-}

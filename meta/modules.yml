@@ -3,12 +3,75 @@ modules:
     name: HeadlineIntroModule
     label: Headline With Divider and Intro Module
     fields:
-      - label: 'Divider'
-        name: 'divider'
-        widget: 'boolean'
-      - label: 'Secondary Text'
-        name: 'secondaryText'
-        widget: 'string'
+      - label: Divider
+        name: divider
+        widget: boolean
+      - label: Secondary Text
+        name: secondaryText
+        widget: string
+  - slug: hero-module
+    name: HeroModule
+    label: HeroModule Image with optional text
+    fields:
+      - label: Slides
+        name: slides
+        widget: list
+        min: 1
+        fields:
+          - label: Slide
+            name: slide
+            widget: object
+            collapsed: true
+            fields:
+              - label: Media
+                name: media
+                widget: object
+                collapsed: true
+                fields:
+                  - label: Image
+                    name: img
+                    widget: image
+                    allow_multiple: false
+                  - label: Alternative Text
+                    name: alt
+                    widget: string
+              - label: Headline
+                name: headline
+                required: false
+                widget: string
+              - label: Overlay Text
+                name: overlayText
+                required: false
+                widget: string
+              - label: Has Quote
+                name: hasQuote
+                widget: boolean
+              - label: Quote Text
+                name: quoteText
+                widget: list
+                min: 1
+                max: 3
+                fields:
+                  - label: Line
+                    name: line
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - label: Start Text
+                        name: startText
+                        widget: string
+                      - label: Middle Text
+                        name: middleText
+                        widget: string
+                      - label: End Text
+                        name: endText
+                        widget: string
+      - label: Show Sideways Logo
+        name: showSidewaysLogo
+        widget: boolean
+      - label: Show always as full height (default max. height 885px)
+        name: isFullHeight
+        widget: boolean
   - slug: intro-columns-module
     name: IntroColumnsModule
     label: Intro and Columns Module
