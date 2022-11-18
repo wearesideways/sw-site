@@ -32,3 +32,15 @@
     margin-right: 15px;
   }
 }
+
+.is-secondary-style {
+  .sub-overlay-text {
+    opacity: 0;
+  }
+
+  &:hover {
+    .sub-overlay-text {
+      opacity: 1;
+    }
+  }
+}
