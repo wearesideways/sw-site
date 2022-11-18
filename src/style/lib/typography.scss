@@ -314,6 +314,14 @@
   }
 }
 
+@mixin tr-body-3() {
+  @include t-Phemister_Regular_20_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Phemister_Regular_24_White();
+  }
+}
+
 @mixin tr-headline-1() {
   @include t-Oscar_Light_41_White();
 
@@ -367,6 +375,14 @@
 
   @include media-breakpoint-up(md) {
     @include t-Phemister_Regular_24_LH_30_White();
+  }
+}
+
+@mixin tr-nav-item() {
+  @include t-Oscar_Medium_12_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Medium_16_LS06_LH_19_White();
   }
 }
 

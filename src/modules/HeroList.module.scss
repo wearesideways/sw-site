@@ -4,10 +4,20 @@
 .root {
   @include module();
   @include module-spacing-1();
+}
 
-  .no-gutters {
-    margin: 0;
+.no-gutters {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.list-container {
+  @include media-breakpoint-down(md) {
     padding: 0;
-    width: 100%;
   }
+}
+
+.list-row {
+  --bs-gutter-x: #{$container-padding-x / 2};
 }
