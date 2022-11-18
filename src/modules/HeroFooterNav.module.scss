@@ -1,0 +1,40 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.root {
+  @include module();
+  @include module-spacing-1();
+}
+
+.no-gutters {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.hero-item {
+  margin: 0;
+  padding: 0;
+
+  @include media-breakpoint-down(md) {
+    height: 50vh;
+  }
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
+}
+
+.nav-control-item {
+  @include tr-nav-item();
+  @include missing-hover();
+}
+
+.nav-label {
+  @include tr-body-3();
+
+  margin: 0;
+}
