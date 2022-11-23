@@ -5,6 +5,7 @@ import OverflowHeadlineModule from '../modules/OverflowHeadlineModule'
 import BigHeadlineModule from '../modules/BigHeadlineModule'
 import HeroListModule from '../modules/HeroListModule'
 import HeroFooterNavModule from '../modules/HeroFooterNavModule'
+import InquireModule from '../modules/InquireModule'
 
 export const moduleIndex: { [key: string]: ({}: any) => {} } = {
   HeroModule,
@@ -14,4 +15,5 @@ export const moduleIndex: { [key: string]: ({}: any) => {} } = {
   BigHeadlineModule,
   HeroListModule,
   HeroFooterNavModule,
+  InquireModule
 }
