@@ -5,3 +5,40 @@
   @include module();
   @include module-spacing-1();
 }
+
+.media-figure {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.media {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.info-container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  z-index: $zindex-1;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  mix-blend-mode: difference;
+
+  @include media-breakpoint-up(md) {
+    mix-blend-mode: unset;
+  }
+}
+
+.description {
+  display: none;
+}
