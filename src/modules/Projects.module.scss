@@ -4,21 +4,56 @@
 .projects {
   @include module();
   @include module-spacing-1();
+
+  .overflown-headline {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
+
+.projects-container {
+  @include media-breakpoint-down(md) {
+    --bs-gutter-x: 0;
+  }
+}
+
+.projects-row {
+  @include media-breakpoint-up(md) {
+    --bs-gutter-y: 85px;
+  }
 }
 
 .media-figure {
   margin: 0;
   width: 100%;
+  display: flex;
   height: 100vh;
   position: relative;
+  flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    height: auto;
+  }
 }
 
-.media {
+.media-container {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   position: absolute;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 136.65%;
+    height: 0;
+    position: relative;
+  }
+}
+
+.media {
+  width: 100%;
+  height: 100%;
 }
 
 .info-container {
@@ -35,10 +70,32 @@
   mix-blend-mode: difference;
 
   @include media-breakpoint-up(md) {
+    order: 1;
+    height: auto;
+    margin-top: 37px;
+    position: relative;
     mix-blend-mode: unset;
+    align-items: flex-start;
   }
 }
 
+.headline,
 .description {
   display: none;
+
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+}
+
+.headline {
+  @include tr-headline-2();
+
+  margin: 0;
+}
+
+.description {
+  @include tr-body-4();
+
+  margin: 10px 0 0;
 }
