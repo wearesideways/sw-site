@@ -268,10 +268,3 @@ modules:
   - slug: inquire-module
     name: InquireModule
     label: Intro and Inquire Module
-    fields:
-      - label: 'Title'
-        name: 'title'
-        widget: 'string'
-      - label: 'Content'
-        name: 'content'
-        widget: 'string'

@@ -14,7 +14,6 @@ export default function InquireModule() {
   useEffect(() => {
     const atLeastSm = window.matchMedia('(min-width: 576px)')
     atLeastSm.addListener((mq) => {
-      console.log('atLestSm', mq.matches)
       setIsAtLestSm(mq.matches)
     })
     setIsAtLestSm(atLeastSm.matches)
