@@ -8,29 +8,29 @@ type Props = {
 }
 
 export function ContactForm({ className }: Props) {
-  const { executeRecaptcha } = useGoogleReCaptcha();
-
-  // Create an event handler so you can call the verification on button click event or form submit
-  const handleReCaptchaVerify = useCallback(async () => {
-    if (!executeRecaptcha) {
-      console.log('Execute recaptcha not yet available');
-      return;
-    }
-
-    const token = await executeRecaptcha('yourAction');
-    // Do whatever you want with the token
-  }, [executeRecaptcha]);
-
-  // You can use useEffect to trigger the verification as soon as the component being loaded
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+  // const { executeRecaptcha } = useGoogleReCaptcha();
+  //
+  // // Create an event handler so you can call the verification on button click event or form submit
+  // const handleReCaptchaVerify = useCallback(async () => {
+  //   if (!executeRecaptcha) {
+  //     console.log('Execute recaptcha not yet available');
+  //     return;
+  //   }
+  //
+  //   const token = await executeRecaptcha('yourAction');
+  //   // Do whatever you want with the token
+  // }, [executeRecaptcha]);
+  //
+  // // You can use useEffect to trigger the verification as soon as the component being loaded
+  // useEffect(() => {
+  //   handleReCaptchaVerify();
+  // }, [handleReCaptchaVerify]);
 
   /////////
 
   const { Group, Label, Control, Check } = Form
 
-  const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState(false)
 
   const handleSubmit = (event) => {
     const form = event.currentTarget

@@ -1,3 +1,4 @@
+@import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/variables';
 
 ////
@@ -7,8 +8,9 @@
 
 /// Remainder of required Bootstrap files
 @import '~bootstrap/scss/maps';
-@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/functions';
 @import "~bootstrap/scss/utilities";
 @import '~bootstrap/scss/buttons';
 @import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/close';
 @import '~bootstrap/scss/modal';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Button, Container, Modal, ModalHeader, ModalBody } from 'react-bootstrap'
 import { ContactForm } from '../components/ContactForm'
@@ -16,6 +16,16 @@ export default function InquireModule({
   content,
 }: Props) {
   const [showModal, setShowModal] = useState(false);
+  const [isAtLestSm, setIsAtLestSm] = useState(null);
+
+  useEffect(() => {
+    const atLeastSm = window.matchMedia('(min-width: 576px)')
+    atLeastSm.addListener((mq) => {
+      console.log('atLestSm',mq.matches)
+      setIsAtLestSm(mq.matches)
+    })
+  }, [])
+
 
   return (
     <>
@@ -35,13 +45,16 @@ export default function InquireModule({
                 formStyles['root']
               )}
             >
-              <Button className={classNames('d-none d-sm-block', styles['contact-us-btn'])} onClick={() => setShowModal(true)}>
-                Contact Us
-              </Button>
+              {!isAtLestSm && (
+                <Button className={classNames('d-none d-sm-block', styles['contact-us-btn'])} onClick={() => setShowModal(true)}>
+                  Contact Us
+                </Button>
+              )}
 
-              <GoogleReCaptchaProvider reCaptchaKey="6LeBcjAjAAAAAMxWA9daydoVHgOf8BXEFQmg-q9O">
+              {isAtLestSm && (
                 <ContactForm />
-              </GoogleReCaptchaProvider>
+              )}
+
             </div>
           </div>
 
@@ -51,11 +64,11 @@ export default function InquireModule({
       <Modal show={showModal} fullscreen onHide={() => setShowModal(false)} className="something">
         <ModalHeader closeButton closeVariant={'white'}/>
         <ModalBody>
-          <GoogleReCaptchaProvider reCaptchaKey="6LeBcjAjAAAAAMxWA9daydoVHgOf8BXEFQmg-q9O">
+          {/*<GoogleReCaptchaProvider reCaptchaKey="6LeBcjAjAAAAAMxWA9daydoVHgOf8BXEFQmg-q9O">*/}
             <div className={formStyles['root']}>
               <ContactForm />
             </div>
-          </GoogleReCaptchaProvider>
+          {/*</GoogleReCaptchaProvider>*/}
         </ModalBody>
       </Modal>
 
