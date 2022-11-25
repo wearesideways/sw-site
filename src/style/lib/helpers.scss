@@ -51,6 +51,8 @@
   --bs-btn-hover-border-color: #{$white};
   --bs-btn-border-width: 2px;
   --bs-btn-border-color: #{$white};
+  --bs-btn-disabled-bg: #{$black};
+  --bs-btn-disabled-border-color: #{$white};
 }
 
 @mixin btn-button-black-caps() {

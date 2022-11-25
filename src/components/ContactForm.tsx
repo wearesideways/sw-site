@@ -10,16 +10,53 @@ export function ContactForm({ className }: Props) {
   // TODO Check useGoogleReCaptcha from react-google-recaptcha-v3 to implement the getting token
 
   const { Group, Label, Control, Check } = Form
-
   const [validated, setValidated] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget
-    if (!form.checkValidity()) {
-      event.preventDefault()
-      event.stopPropagation()
+    event.preventDefault()
+    event.stopPropagation()
+    setSubmitting(true)
+    setSuccess(false)
+    setError('')
+
+    if (form.checkValidity()) {
+      // If the form fields are valid
+      setIsSubmitted(true)
+      const body = {
+        firstName: 'test',
+        email: 'a@a.com',
+        companyName: 'SW',
+        projectDescription: 'bla bla bla'
+      }
+
+      // TODO: Replace randomBoolean and mock for actual call
+      // const endpointUrl = 'https://formcarry.com/s/3zWZ_B4jkn1'
+      const randomBoolean = Math.random() < 0.5
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+
+      try {
+        if (randomBoolean) {
+          // show success
+          console.log('sendingParams-->', body)
+          setSuccess(true)
+        } else {
+          // TODO Change this to a more appropriate message once we know the third party service
+          setError('There was an error trying to submit your request.')
+        }
+      } catch (error) {
+        setError('There was an error submitting your request. Please try again later.')
+        console.error(error)
+      } finally {
+        setSubmitting(false)
+      }
     }
 
+    setSubmitting(false)
     setValidated(true)
   }
 
@@ -126,7 +163,24 @@ export function ContactForm({ className }: Props) {
           </Col>
         </Row>
 
-        <Button className={styles['submit-btn']} type='submit'>
+      <Row className={styles['row-controls']}>
+        <Col className={styles['spacing-mobile']}>
+          {isSubmitted && error !== '' && (
+            <div className={styles['error-section']}>
+              {error}
+            </div>
+          )}
+
+          {isSubmitted && success && (
+            <div>
+              Thank you! The SW team will be in touch nearly.
+            </div>
+          )}
+
+        </Col>
+      </Row>
+
+        <Button className={styles['submit-btn']} type='submit' disabled={submitting}>
           Submit
         </Button>
       </Form>
