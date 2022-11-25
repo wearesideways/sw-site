@@ -15,5 +15,5 @@ export const moduleIndex: { [key: string]: ({}: any) => {} } = {
   BigHeadlineModule,
   HeroListModule,
   HeroFooterNavModule,
-  InquireModule
+  InquireModule,
 }
