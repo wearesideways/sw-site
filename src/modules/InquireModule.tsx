@@ -6,15 +6,8 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import styles from './Inquire.module.scss'
 import formStyles from '../components/ContactForm.module.scss'
 
-type Props = {
-  title: string
-  content: string
-}
-
-export default function InquireModule({
-  title,
-  content,
-}: Props) {
+export default function InquireModule() {
+  const reCaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY
   const [showModal, setShowModal] = useState(false);
   const [isAtLestSm, setIsAtLestSm] = useState(null);
 
@@ -24,17 +17,23 @@ export default function InquireModule({
       console.log('atLestSm',mq.matches)
       setIsAtLestSm(mq.matches)
     })
+    setIsAtLestSm(atLeastSm.matches)
   }, [])
 
-
   return (
-    <>
+    <GoogleReCaptchaProvider reCaptchaKey={reCaptchaKey}>
       <section className={styles['root']}>
         <Container>
           <div className={styles['columns-content']}>
             <div className={classNames(styles['column-content'], styles['first-column'])}>
-              <h2 className={styles['title']}>{title}</h2>
-              <p className={styles['description']}>{content}</p>
+              <h2 className={styles['title']}>Contact Us</h2>
+              <p className={styles['description']}>
+                Sideways is a digital-first branding and creative agency uniquely positioned to differentiate your brand in a world where branding never stops.
+              </p>
+              <br/>
+              <p className={styles['description']}>
+                For business related inquiries, please complete this form.
+              </p>
             </div>
 
             <div
@@ -46,7 +45,7 @@ export default function InquireModule({
               )}
             >
               {!isAtLestSm && (
-                <Button className={classNames('d-none d-sm-block', styles['contact-us-btn'])} onClick={() => setShowModal(true)}>
+                <Button className={styles['contact-us-btn']} onClick={() => setShowModal(true)}>
                   Contact Us
                 </Button>
               )}
@@ -61,17 +60,15 @@ export default function InquireModule({
         </Container>
       </section>
 
-      <Modal show={showModal} fullscreen onHide={() => setShowModal(false)} className="something">
+      <Modal show={showModal} fullscreen onHide={() => setShowModal(false)}>
         <ModalHeader closeButton closeVariant={'white'}/>
         <ModalBody>
-          {/*<GoogleReCaptchaProvider reCaptchaKey="6LeBcjAjAAAAAMxWA9daydoVHgOf8BXEFQmg-q9O">*/}
-            <div className={formStyles['root']}>
-              <ContactForm />
-            </div>
-          {/*</GoogleReCaptchaProvider>*/}
+          <div className={formStyles['root']}>
+            <ContactForm />
+          </div>
         </ModalBody>
       </Modal>
 
-    </>
+    </GoogleReCaptchaProvider>
   )
 }
