@@ -380,6 +380,12 @@
   }
 }
 
+@mixin tr-label-5() {
+  @include t-Oscar_Light_30_White();
+
+  text-transform: unset;
+}
+
 @mixin tr-tagline-1() {
   @include t-Oscar_Medium_12_LS06_LH_14_White();
 
