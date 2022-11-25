@@ -7,9 +7,9 @@ import styles from './Inquire.module.scss'
 import formStyles from '../components/ContactForm.module.scss'
 
 export default function InquireModule() {
-  const reCaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY
+  const reCaptchaKey = process.env['NEXT_PUBLIC_RECAPTCHA_KEY'] || ''
   const [showModal, setShowModal] = useState(false)
-  const [isAtLestSm, setIsAtLestSm] = useState(null)
+  const [isAtLestSm, setIsAtLestSm] = useState<any>(null)
 
   useEffect(() => {
     const atLeastSm = window.matchMedia('(min-width: 576px)')

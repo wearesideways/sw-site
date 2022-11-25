@@ -16,7 +16,7 @@ export function ContactForm({ className }: Props) {
   const [success, setSuccess] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     const form = event.currentTarget
     event.preventDefault()
     event.stopPropagation()
