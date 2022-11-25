@@ -285,6 +285,9 @@ modules:
               - label: Description
                 name: description
                 widget: string
+              - label: Category
+                name: category
+                widget: string
               - label: Media
                 name: media
                 widget: object
@@ -297,3 +300,7 @@ modules:
                   - label: Alternative Text
                     name: alt
                     widget: string
+      - label: sortFilters
+        name: Sort Filters
+        widget: list
+        min: 1
