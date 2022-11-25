@@ -11,7 +11,7 @@
 .columns-content {
   position: relative;
 
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(lg) {
     display: flex;
   }
 }
@@ -19,34 +19,35 @@
 .title {
   margin: 0 0 15px;
 
-  @include media-breakpoint-up(sm) {
-    margin: 0 0 22px;
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 32px;
   }
 }
 
 .description {
   margin: 0 auto;
-  text-align: left;
 
   @include media-breakpoint-up(sm) {
-    max-width: none;
+    text-align: left;
   }
 }
 
 .column-content {
   width: 100%;
-  max-width: 280px;
+  max-width: 320px;
+  text-align: center;
   margin: 0 auto 40px;
 
   @include media-breakpoint-up(sm) {
     max-width: none;
+    text-align: initial;
   }
 }
 
 .first-column {
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(lg) {
     width: 35%;
-    margin-right: 2%;
+    margin-right: 4%;
   }
 
   .title {
@@ -59,15 +60,10 @@
 }
 
 .second-column {
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(lg) {
     width: 61%;
-    margin-right: 2%;
-    margin-top: 35px;
+    margin-top: 65px;
     margin-bottom: 110px;
-  }
-
-  @include media-breakpoint-up(md) {
-    margin-top: 50px;
   }
 }
 
@@ -84,3 +80,6 @@
   }
 }
 
+.contact-us-btn {
+  @include btn-button-black-caps();
+}

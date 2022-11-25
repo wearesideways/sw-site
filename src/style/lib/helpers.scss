@@ -42,6 +42,44 @@
   padding: 0;
 }
 
+@mixin whiteButtonValues() {
+  --bs-btn-active-bg: #{$black};
+  --bs-btn-active-color: #{$white};
+  --bs-btn-active-border-color: #{$white};
+  --bs-btn-hover-bg: #{$black};
+  --bs-btn-hover-color: #{$white};
+  --bs-btn-hover-border-color: #{$white};
+  --bs-btn-border-width: 2px;
+  --bs-btn-border-color: #{$white};
+}
+
+@mixin btn-button-black-caps() {
+  @include whiteButtonValues();
+  @include t-Oscar_Medium_12_LS06_LH_14_White();
+
+  height: 40px;
+  color: $black;
+  min-width: 125px;
+  padding: 6px 12px;
+  text-align: center;
+  background-color: $white;
+}
+
+@mixin btn-button-large-full() {
+  @include whiteButtonValues();
+  @include tr-label-5();
+
+  width: 100%;
+  height: 50px;
+  color: $black;
+  text-align: center;
+  background-color: $white;
+
+  @include media-breakpoint-up(md) {
+    height: 74px;
+  }
+}
+
 @mixin wysiwyg-copy {
   overflow: hidden;
 

@@ -16,13 +16,32 @@
   flex-wrap: wrap;
   max-width: 100%;
   text-align: center;
+  position: relative;
   text-transform: none;
+  margin-bottom: 100px;
+
+  &::after {
+    left: 50%;
+    top: 100%;
+    width: 1px;
+    opacity: 1;
+    content: '';
+    height: 60px;
+    border: none;
+    margin: 22px auto;
+    background: $white;
+    position: absolute;
+  }
 
   @include media-breakpoint-up(sm) {
     margin: 0 auto;
     flex-wrap: nowrap;
     text-align: justify;
     align-items: center;
+
+    &::after {
+      display: none;
+    }
 
     .line {
       width: 100%;

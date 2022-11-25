@@ -11,12 +11,28 @@
   text-transform: uppercase;
 }
 
+@mixin t-Oscar_Light_20_Black() {
+  color: $black;
+  font-weight: 300;
+  font-family: $font-family-1;
+  font-size: 20px;
+  line-height: 22px;
+}
+
 @mixin t-Oscar_Light_26_White() {
   color: $white;
   font-weight: 300;
   font-family: $font-family-1;
   font-size: 26px;
   line-height: 32px;
+}
+
+@mixin t-Oscar_Light_30_Black() {
+  font-family: $font-family-1;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0.03em;
+  color: $black;
 }
 
 @mixin t-Oscar_Light_40_White() {
@@ -359,6 +375,14 @@
 
   @include media-breakpoint-up(lg) {
     @include t-Phemister_Light_Italic_93_White();
+  }
+}
+
+@mixin tr-label-5() {
+  @include t-Oscar_Light_20_Black();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Light_30_Black();
   }
 }
 

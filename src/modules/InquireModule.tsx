@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import styles from './Inquire.module.scss'
 import classNames from 'classnames'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Button, Container, Modal, ModalHeader, ModalBody } from 'react-bootstrap'
+import { ContactForm } from '../components/ContactForm'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
+import styles from './Inquire.module.scss'
+import formStyles from '../components/ContactForm.module.scss'
 
 type Props = {
   title: string
@@ -12,147 +15,50 @@ export default function InquireModule({
   title,
   content,
 }: Props) {
-  const { Group, Label, Control, Check } = Form
-
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget
-    if (!form.checkValidity()) {
-      event.preventDefault()
-      event.stopPropagation()
-    }
-
-    setValidated(true)
-  }
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <section className={styles['root']}>
-      <Container fluid="xxl">
-        <div className={styles['columns-content']}>
-          <div className={classNames(styles['column-content'], styles['first-column'])}>
-            <h2 className={styles['title']}>{title}</h2>
-            <p className={styles['description']}>{content}</p>
-          </div>
+    <>
+      <section className={styles['root']}>
+        <Container>
+          <div className={styles['columns-content']}>
+            <div className={classNames(styles['column-content'], styles['first-column'])}>
+              <h2 className={styles['title']}>{title}</h2>
+              <p className={styles['description']}>{content}</p>
+            </div>
 
-          <div
-            className={classNames(
-              styles['column-content'],
-              styles['second-column'],
-              styles['secondary-column-type'],
-            )}
-          >
-            {/*BEGIN Form*/}
-
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
-              <Row>
-                <Col>
-                  <Group className="mb-3" controlId="formFirstName">
-                    <Label>First Name</Label>
-                    <Control type="text"/>
-                  </Group>
-                </Col>
-
-                <Col>
-                  <Group className="mb-3" controlId="formLastName">
-                    <Label>Last Name</Label>
-                    <Control type="text" />
-                  </Group>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Group className="mb-3" controlId="formEmail">
-                    <Label>Email*</Label>
-                    <Control type="email" required/>
-                  </Group>
-                </Col>
-
-                <Col>
-                  <Group className="mb-3" controlId="formCompanyName">
-                    <Label>Company Name*</Label>
-                    <Control type="text" required/>
-                  </Group>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Group className="mb-3" controlId="formPhoneNumber">
-                    <Label>Phone Number</Label>
-                    <Control type="text"/>
-                  </Group>
-                </Col>
-
-                <Col>
-                  <Group className="mb-3" controlId="formWebsiteUrl">
-                    <Label>Website URL</Label>
-                    <Control type="text"/>
-                  </Group>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Group className="mb-3" controlId="formBudgetRange">
-                    <Label>Approximate budget range</Label>
-                    <Form.Select aria-label="Please select a budget range">
-                      <option>Please Select</option>
-                      <option value="Under $50k">Under $50k</option>
-                      <option value="$50k - $75k">$50k - $75k</option>
-                      <option value="$75k - $100k">$75k - $100k</option>
-                      <option value="$100k - $250k">$100k - $250k</option>
-                      <option value="Above $250k">Above $250k</option>
-                    </Form.Select>
-                  </Group>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Label>Type Of Project</Label>
-                  <Row>
-                    <Col>
-                      <Check type="checkbox" label="Branding & Logo Design" id="inline-check-1"/>
-                      <Check type="checkbox" label="Website Design & Development" id="inline-check-2"/>
-                      <Check type="checkbox" label="Social Media Marketing" id="inline-check-3"/>
-                      <Check type="checkbox" label="Paid Marketing" id="inline-check-4"/>
-                    </Col>
-                    <Col>
-                      <Check type="checkbox" label="SEO" id="inline-check-5"/>
-                      <Check type="checkbox" label="Video / Photo Shoot" id="inline-check-6"/>
-                      <Check type="checkbox" label="Other" id="inline-check-7"/>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Group className="mb-3" controlId="formProjectDescription">
-                    <Label>Project Description*</Label>
-                    <Control type="text" required/>
-                  </Group>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  Recaptcha feature
-                </Col>
-              </Row>
-
-              <Button variant="primary" type="submit">
-                Submit
+            <div
+              className={classNames(
+                styles['column-content'],
+                styles['second-column'],
+                styles['secondary-column-type'],
+                formStyles['root']
+              )}
+            >
+              <Button className={classNames('d-none d-sm-block', styles['contact-us-btn'])} onClick={() => setShowModal(true)}>
+                Contact Us
               </Button>
-            </Form>
+
+              <GoogleReCaptchaProvider reCaptchaKey="6LeBcjAjAAAAAMxWA9daydoVHgOf8BXEFQmg-q9O">
+                <ContactForm />
+              </GoogleReCaptchaProvider>
+            </div>
           </div>
 
-          {/*END Form*/}
+        </Container>
+      </section>
 
-        </div>
-      </Container>
-    </section>
+      <Modal show={showModal} fullscreen onHide={() => setShowModal(false)} className="something">
+        <ModalHeader closeButton closeVariant={'white'}/>
+        <ModalBody>
+          <GoogleReCaptchaProvider reCaptchaKey="6LeBcjAjAAAAAMxWA9daydoVHgOf8BXEFQmg-q9O">
+            <div className={formStyles['root']}>
+              <ContactForm />
+            </div>
+          </GoogleReCaptchaProvider>
+        </ModalBody>
+      </Modal>
+
+    </>
   )
 }

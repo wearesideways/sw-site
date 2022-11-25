@@ -50,6 +50,7 @@ $gray-100: rgb(248, 249, 250);
 $gray-600: rgb(108, 117, 125);
 // $gray-700: rgb(73, 80, 87);
 $gray-800: rgb(52, 58, 64);
+$gray-850: rgb(56, 56, 56);
 $gray-900: rgb(33, 37, 41);
 $black: rgb(0, 0, 0);
 
@@ -106,3 +107,9 @@ $font-size-root: 16px;
 // Misc
 $border-radius: 0;
 $border-width: 0;
+
+// Bootstrap - Forms
+$input-bg: $gray-850;
+$input-border-radius-lg: 0;
+$modal-fade-transform: translateX(100%);
+$modal-content-bg: $black;
