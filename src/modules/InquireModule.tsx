@@ -8,13 +8,13 @@ import formStyles from '../components/ContactForm.module.scss'
 
 export default function InquireModule() {
   const reCaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY
-  const [showModal, setShowModal] = useState(false);
-  const [isAtLestSm, setIsAtLestSm] = useState(null);
+  const [showModal, setShowModal] = useState(false)
+  const [isAtLestSm, setIsAtLestSm] = useState(null)
 
   useEffect(() => {
     const atLeastSm = window.matchMedia('(min-width: 576px)')
     atLeastSm.addListener((mq) => {
-      console.log('atLestSm',mq.matches)
+      console.log('atLestSm', mq.matches)
       setIsAtLestSm(mq.matches)
     })
     setIsAtLestSm(atLeastSm.matches)
@@ -28,9 +28,10 @@ export default function InquireModule() {
             <div className={classNames(styles['column-content'], styles['first-column'])}>
               <h2 className={styles['title']}>Contact Us</h2>
               <p className={styles['description']}>
-                Sideways is a digital-first branding and creative agency uniquely positioned to differentiate your brand in a world where branding never stops.
+                Sideways is a digital-first branding and creative agency uniquely positioned to
+                differentiate your brand in a world where branding never stops.
               </p>
-              <br/>
+              <br />
               <p className={styles['description']}>
                 For business related inquiries, please complete this form.
               </p>
@@ -41,7 +42,7 @@ export default function InquireModule() {
                 styles['column-content'],
                 styles['second-column'],
                 styles['secondary-column-type'],
-                formStyles['root']
+                formStyles['root'],
               )}
             >
               {!isAtLestSm && (
@@ -50,25 +51,20 @@ export default function InquireModule() {
                 </Button>
               )}
 
-              {isAtLestSm && (
-                <ContactForm />
-              )}
-
+              {isAtLestSm && <ContactForm />}
             </div>
           </div>
-
         </Container>
       </section>
 
       <Modal show={showModal} fullscreen onHide={() => setShowModal(false)}>
-        <ModalHeader closeButton closeVariant={'white'}/>
+        <ModalHeader closeButton closeVariant={'white'} />
         <ModalBody>
           <div className={formStyles['root']}>
             <ContactForm />
           </div>
         </ModalBody>
       </Modal>
-
     </GoogleReCaptchaProvider>
   )
 }

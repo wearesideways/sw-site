@@ -1,8 +1,9 @@
 @import '../style/lib';
 
+// stylelint-disable selector-pseudo-class-no-unknown, selector-max-compound-selectors, no-descending-specificity
+
 .root {
   :global .was-validated {
-
     .form-control:valid,
     .form-control.is-valid {
       background-image: none;
@@ -20,9 +21,9 @@
     }
 
     .form-select:valid:not([multiple]):not([size]),
-    .form-select:valid:not([multiple])[size="1"],
+    .form-select:valid:not([multiple])[size='1'],
     .form-select.is-valid:not([multiple]):not([size]),
-    .form-select.is-valid:not([multiple])[size="1"] {
+    .form-select.is-valid:not([multiple])[size='1'] {
       background-image: url('/images/arrow-down-white.svg');
     }
   }
@@ -66,6 +67,3 @@
 .error-section {
   color: $danger;
 }
-
-
-

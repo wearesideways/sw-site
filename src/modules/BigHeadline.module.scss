@@ -20,19 +20,6 @@
   text-transform: none;
   margin-bottom: 100px;
 
-  &::after {
-    left: 50%;
-    top: 100%;
-    width: 1px;
-    opacity: 1;
-    content: '';
-    height: 60px;
-    border: none;
-    margin: 22px auto;
-    background: $white;
-    position: absolute;
-  }
-
   @include media-breakpoint-up(sm) {
     margin: 0 auto;
     flex-wrap: nowrap;
@@ -50,6 +37,19 @@
       margin-top: 1vw;
       background: $white;
     }
+  }
+
+  &::after {
+    left: 50%;
+    top: 100%;
+    width: 1px;
+    opacity: 1;
+    content: '';
+    height: 60px;
+    border: none;
+    margin: 22px auto;
+    background: $white;
+    position: absolute;
   }
 }
 
