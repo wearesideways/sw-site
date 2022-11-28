@@ -19,6 +19,14 @@
   line-height: 22px;
 }
 
+@mixin t-Oscar_Light_22_White() {
+  color: $white;
+  font-weight: 300;
+  font-family: $font-family-1;
+  font-size: 22px;
+  line-height: 24px;
+}
+
 @mixin t-Oscar_Light_26_White() {
   color: $white;
   font-weight: 300;
@@ -343,6 +351,14 @@
 
   @include media-breakpoint-up(lg) {
     @include t-Oscar_Light_114_White();
+  }
+}
+
+@mixin tr-headline-2() {
+  @include t-Oscar_Light_22_White();
+
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Light_45_White();
   }
 }
 

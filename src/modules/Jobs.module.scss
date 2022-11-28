@@ -1,0 +1,120 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.root {
+  @include module();
+  @include module-spacing-1();
+
+  width: 100%;
+}
+
+.columns-content {
+  position: relative;
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
+}
+
+.title {
+  @include tr-header-1();
+
+  margin: 0 0 15px;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 32px;
+  }
+}
+
+.description {
+  @include tr-header-2();
+
+  margin: 0 auto;
+
+  @include media-breakpoint-up(sm) {
+    text-align: left;
+  }
+}
+
+.column-content {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  margin: 0 auto 40px;
+
+  @include media-breakpoint-up(sm) {
+    max-width: none;
+    text-align: initial;
+  }
+}
+
+.first-column {
+  @include media-breakpoint-up(lg) {
+    width: 35%;
+    margin-right: 4%;
+  }
+}
+
+.second-column {
+  @include media-breakpoint-up(lg) {
+    width: 61%;
+    margin-bottom: 110px;
+  }
+}
+
+.jobs-btn {
+  @include btn-button-black-caps();
+}
+
+.jobs-list {
+  padding: 0;
+  list-style: none;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: -15px;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: -40px;
+  }
+}
+
+.job-item {
+  @include tr-headline-2();
+
+  width: 100%;
+  padding: 17px 0;
+  position: relative;
+  border-bottom: 1px solid $white;
+
+  @include media-breakpoint-down(sm) {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding: 32px 0;
+  }
+
+  &::after {
+    @include transition($transition-duration-sm, opacify);
+
+    top: 50%;
+    opacity: 0;
+    right: 3px;
+    width: 23px;
+    content: '';
+    height: 11px;
+    position: absolute;
+    background-repeat: no-repeat;
+    transform: rotate(-90deg) translateX(26%);
+    background-image: url('/images/arrow-down-white.svg');
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
