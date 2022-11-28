@@ -1,5 +1,6 @@
 @import '../style/lib';
 
+// Import Bootstrap Necessary Features
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/containers';
@@ -8,3 +9,4 @@
 @import '~bootstrap/scss/forms';
 @import '~bootstrap/scss/close';
 @import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/utilities/api';

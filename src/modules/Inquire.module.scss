@@ -17,6 +17,8 @@
 }
 
 .title {
+  @include tr-header-1();
+
   margin: 0 0 15px;
 
   @include media-breakpoint-up(lg) {
@@ -25,6 +27,8 @@
 }
 
 .description {
+  @include tr-header-2();
+
   margin: 0 auto;
 
   @include media-breakpoint-up(sm) {
@@ -49,34 +53,16 @@
     width: 35%;
     margin-right: 4%;
   }
-
-  .title {
-    @include tr-header-1();
-  }
-
-  .description {
-    @include tr-header-2();
-  }
 }
 
 .second-column {
+  padding: 0;
+  list-style: none;
+
   @include media-breakpoint-up(lg) {
     width: 61%;
     margin-top: 56px;
     margin-bottom: 110px;
-  }
-}
-
-.secondary-column-type {
-  .title {
-    @include t-Phemister_Regular_18_White();
-  }
-
-  .description {
-    @include tr-header-1();
-
-    padding: 0;
-    list-style: none;
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Button, Container, Modal, ModalHeader, ModalBody } from 'react-bootstrap'
 import { ContactForm } from '../components/ContactForm'
@@ -9,15 +9,6 @@ import formStyles from '../components/ContactForm.module.scss'
 export default function InquireModule() {
   const reCaptchaKey = process.env['NEXT_PUBLIC_RECAPTCHA_KEY'] || ''
   const [showModal, setShowModal] = useState(false)
-  const [isAtLestSm, setIsAtLestSm] = useState<any>(null)
-
-  useEffect(() => {
-    const atLeastSm = window.matchMedia('(min-width: 576px)')
-    atLeastSm.addListener((mq) => {
-      setIsAtLestSm(mq.matches)
-    })
-    setIsAtLestSm(atLeastSm.matches)
-  }, [])
 
   return (
     <GoogleReCaptchaProvider reCaptchaKey={reCaptchaKey}>
@@ -40,17 +31,17 @@ export default function InquireModule() {
               className={classNames(
                 styles['column-content'],
                 styles['second-column'],
-                styles['secondary-column-type'],
                 formStyles['root'],
               )}
             >
-              {!isAtLestSm && (
-                <Button className={styles['contact-us-btn']} onClick={() => setShowModal(true)}>
-                  Contact Us
-                </Button>
-              )}
+              <Button
+                className={classNames('d-inline-block d-sm-none ', styles['contact-us-btn'])}
+                onClick={() => setShowModal(true)}
+              >
+                Contact Us
+              </Button>
 
-              {isAtLestSm && <ContactForm />}
+              <ContactForm className={'d-none d-sm-block'} />
             </div>
           </div>
         </Container>

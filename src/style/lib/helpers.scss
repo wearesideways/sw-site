@@ -42,7 +42,7 @@
   padding: 0;
 }
 
-@mixin whiteButtonValues() {
+@mixin white-button-values() {
   --bs-btn-active-bg: #{$black};
   --bs-btn-active-color: #{$white};
   --bs-btn-active-border-color: #{$white};
@@ -56,7 +56,7 @@
 }
 
 @mixin btn-button-black-caps() {
-  @include whiteButtonValues();
+  @include white-button-values();
   @include t-Oscar_Medium_12_LS06_LH_14_White();
 
   height: 40px;
@@ -68,7 +68,7 @@
 }
 
 @mixin btn-button-large-full() {
-  @include whiteButtonValues();
+  @include white-button-values();
   @include tr-label-5();
 
   width: 100%;
