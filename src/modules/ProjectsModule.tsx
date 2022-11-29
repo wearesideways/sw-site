@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId, useState, MouseEvent } from 'react'
 import styles from './Projects.module.scss'
 import { MediaTypes } from '../lib/types'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -23,12 +23,12 @@ type Props = {
 }
 
 export default function ProjectsModule({ projectsList, sortFilters }: Props) {
-  const [currentFilter, setFilter] = React.useState('All')
-  const [drawerIsExpanded, setDrawerExpanded] = React.useState(false)
-  const toggleId = React.useId()
-  const regionId = React.useId()
+  const [currentFilter, setFilter] = useState('All')
+  const [drawerIsExpanded, setDrawerExpanded] = useState(false)
+  const toggleId = useId()
+  const regionId = useId()
 
-  function onClickFilter(e: React.MouseEvent, category: string) {
+  function onClickFilter(e: MouseEvent, category: string) {
     setFilter(category)
   }
 
