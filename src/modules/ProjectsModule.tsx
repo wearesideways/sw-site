@@ -4,6 +4,7 @@ import { MediaTypes } from '../lib/types'
 import { Container, Row, Col } from 'react-bootstrap'
 import OverflownHeadline from '../components/OverflownHeadline'
 import Media from '../components/Media'
+import classNames from 'classnames'
 
 type Props = {
   projectsList?: {
@@ -23,9 +24,16 @@ type Props = {
 
 export default function ProjectsModule({ projectsList, sortFilters }: Props) {
   const [currentFilter, setFilter] = React.useState('All')
+  const [drawerIsExpanded, setDrawerExpanded] = React.useState(false)
+  const toggleId = React.useId()
+  const regionId = React.useId()
 
   function onClickFilter(e: React.MouseEvent, category: string) {
     setFilter(category)
+  }
+
+  function toggleDrawer() {
+    setDrawerExpanded(!drawerIsExpanded)
   }
 
   function filterButton(categoryLabel: string) {
@@ -48,20 +56,52 @@ export default function ProjectsModule({ projectsList, sortFilters }: Props) {
       : projectsList?.filter((el) => el.project.category === currentFilter)
   }
 
+  const filtersContent = (
+    <ul className={styles['filters-container']}>
+      <li className={styles['filters-item']}>{filterButton('All')}</li>
+
+      {sortFilters?.map((elem, index) => (
+        <li className={styles['filters-item']} key={`filters-${index}`}>
+          {filterButton(elem)}
+        </li>
+      ))}
+    </ul>
+  )
+
   return (
     <section className={styles['projects']}>
+      <ul
+        tabIndex={1}
+        className={classNames(
+          styles['drawer-btn-container'],
+          drawerIsExpanded ? styles['is-btn-expanded'] : '',
+        )}
+      >
+        <li>
+          <button
+            id={toggleId}
+            className={styles['drawer-toggle-btn']}
+            aria-controls={regionId}
+            aria-expanded={drawerIsExpanded}
+            onClick={toggleDrawer}
+          >
+            Filter
+          </button>
+        </li>
+      </ul>
+      <div
+        id={regionId}
+        className={classNames(
+          styles['drawer-region'],
+          drawerIsExpanded ? styles['is-region-expanded'] : '',
+        )}
+        role="region"
+        aria-labelledby={toggleId}
+      >
+        {filtersContent}
+      </div>
       <Container fluid={'md'} className={styles['projects-container']}>
-        <Row className={styles['filters-row']}>
-          <ul className={styles['filters-container']}>
-            <li className={styles['filters-item']}>{filterButton('All')}</li>
-
-            {sortFilters?.map((elem, index) => (
-              <li className={styles['filters-item']} key={`filters-${index}`}>
-                {filterButton(elem)}
-              </li>
-            ))}
-          </ul>
-        </Row>
+        <Row className={styles['filters-row']}>{filtersContent}</Row>
         <Row className={styles['projects-row']}>
           {filteredProjects()?.map(({ project }, index) => {
             return (

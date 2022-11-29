@@ -89,6 +89,16 @@
   text-transform: uppercase;
 }
 
+@mixin t-Oscar_Medium_12_White-alt-1() {
+  font-family: $font-family-1;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 22px;
+  color: $white;
+  text-transform: uppercase;
+}
+
 @mixin t-Oscar_Medium_12_LS06_LH_14_White() {
   color: $white;
   font-weight: 500;
@@ -381,9 +391,17 @@
 }
 
 @mixin tr-label-5() {
-  @include t-Oscar_Light_30_White();
+  @include t-Oscar_Light_26_White();
 
-  text-transform: unset;
+  @include media-breakpoint-up(md) {
+    @include t-Oscar_Light_30_White();
+
+    text-transform: unset;
+  }
+}
+
+@mixin tr-label-6() {
+  @include t-Oscar_Medium_12_White-alt-1();
 }
 
 @mixin tr-tagline-1() {
