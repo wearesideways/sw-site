@@ -1,8 +1,15 @@
 @import 'lib';
 
-@mixin module() {
-  &:first-of-type {
-    margin-top: 0;
+@mixin module($module-name: '') {
+  &:last-of-type {
+    @include media-breakpoint-up(md) {
+      margin-bottom: 80px;
+    }
+  }
+  @if $module-name != 'big-headline' {
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 }
 
@@ -24,5 +31,13 @@
 
   @include media-breakpoint-up(md) {
     margin-top: $module-spacing-md;
+  }
+}
+
+@mixin module-spacing-3() {
+  margin-top: $module-spacing-md;
+
+  @include media-breakpoint-up(md) {
+    margin-top: $module-spacing-lg;
   }
 }

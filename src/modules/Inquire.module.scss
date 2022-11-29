@@ -3,9 +3,13 @@
 
 .root {
   @include module();
-  @include module-spacing-1();
+  @include module-spacing-2();
 
   width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    border-bottom: 1px solid $white;
+  }
 }
 
 .columns-content {

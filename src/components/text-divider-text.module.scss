@@ -2,7 +2,7 @@
 
 .text-divider-text {
   background: $black;
-  padding: 120px 0;
+  padding-bottom: 1px;
 }
 
 .container {
@@ -20,14 +20,8 @@
   border: none;
   background: $white;
   margin: 22px auto;
-}
 
-@media (min-width: 576px) {
-  .text-divider-text {
-    padding: 110px 0 140px;
-  }
-
-  .divider {
+  @include media-breakpoint-up(sm) {
     height: 1px;
     width: 100%;
     margin: 110px auto 83px;

@@ -3,7 +3,7 @@
 
 .root {
   @include module();
-  @include module-spacing-1();
+  @include module-spacing-2();
 
   width: 100%;
 }
