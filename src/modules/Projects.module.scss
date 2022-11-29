@@ -99,7 +99,7 @@
 }
 
 .headline {
-  @include tr-headline-2();
+  @include tr-headline-3();
 
   margin: 0;
 }
@@ -133,7 +133,7 @@
 }
 
 .filters-item {
-  @include tr-label-5();
+  @include tr-label-6();
 
   margin-top: 18px;
 
@@ -170,18 +170,18 @@
   z-index: $zindex-dropdown;
   mix-blend-mode: difference;
 
-  &.is-btn-expanded {
-    transform: translateX(-276px);
-  }
-
   @include media-breakpoint-up(md) {
     display: none;
+  }
+
+  &.is-btn-expanded {
+    transform: translateX(-276px);
   }
 }
 
 .drawer-toggle-btn {
   @include unstyled-btn();
-  @include tr-label-6();
+  @include tr-label-7();
 
   height: 44px;
   padding: 0 12px;
@@ -210,11 +210,11 @@
   z-index: $zindex-dropdown;
   transform: translateX(100%);
 
-  &.is-region-expanded {
-    transform: translateX(0);
-  }
-
   @include media-breakpoint-up(md) {
     display: none;
+  }
+
+  &.is-region-expanded {
+    transform: translateX(0);
   }
 }

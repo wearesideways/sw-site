@@ -386,7 +386,7 @@
   }
 }
 
-@mixin tr-headline-2() {
+@mixin tr-headline-3() {
   @include t-Oscar_Light_40_White-alt-1();
 }
 
@@ -430,7 +430,7 @@
   }
 }
 
-@mixin tr-label-5() {
+@mixin tr-label-6() {
   @include t-Oscar_Light_26_White();
 
   @include media-breakpoint-up(md) {
@@ -440,7 +440,7 @@
   }
 }
 
-@mixin tr-label-6() {
+@mixin tr-label-7() {
   @include t-Oscar_Medium_12_White-alt-1();
 }
 
