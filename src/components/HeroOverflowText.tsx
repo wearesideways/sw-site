@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectFade } from 'swiper'
 import 'swiper/css'
 import classNames from 'classnames'
-import OverflowHeadlineModule from '../modules/OverflowHeadlineModule'
+import OverflownHeadline from '../components/OverflownHeadline'
 import { Col } from 'react-bootstrap'
 import Media from './Media'
 import Link from 'next/link'
@@ -34,7 +34,7 @@ export function HeroItem({
   const copyContent = (
     <>
       {overlayText && (
-        <OverflowHeadlineModule
+        <OverflownHeadline
           className={classNames(!showSubOverlay && styles['is-secondary-style'])}
           headline={overlayText}
         />
