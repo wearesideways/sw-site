@@ -125,7 +125,6 @@
 
   @include media-breakpoint-up(md) {
     padding: 0;
-    flex-direction: row;
     flex-flow: row wrap;
     margin: 87px 0 79px;
     justify-content: center;
