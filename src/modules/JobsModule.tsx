@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Button, Container, Modal, ModalHeader, ModalBody } from 'react-bootstrap'
 import styles from './Jobs.module.scss'
@@ -25,16 +25,7 @@ const JobsList = ({ items }: JobListProps) => {
 
 export default function JobsModule() {
   const [showModal, setShowModal] = useState(false)
-  const [isAtLestSm, setIsAtLestSm] = useState<any>(null)
   const jobItems = [{ title: 'Designer' }, { title: 'Intern' }, { title: 'Office Goldfish' }]
-
-  useEffect(() => {
-    const atLeastSm = window.matchMedia('(min-width: 576px)')
-    atLeastSm.addListener((mq) => {
-      setIsAtLestSm(mq.matches)
-    })
-    setIsAtLestSm(atLeastSm.matches)
-  }, [])
 
   return (
     <>
@@ -54,18 +45,17 @@ export default function JobsModule() {
             </div>
 
             <div className={classNames(styles['column-content'], styles['second-column'])}>
-              {!isAtLestSm && (
-                <Button className={styles['jobs-btn']} onClick={() => setShowModal(true)}>
-                  Jobs Positions
-                </Button>
-              )}
+              <Button
+                className={classNames('d-inline-block d-sm-none', styles['jobs-btn'])}
+                onClick={() => setShowModal(true)}
+              >
+                Jobs Positions
+              </Button>
 
-              {isAtLestSm && (
-                <>
-                  <h2 className={styles['title']}>Jobs Positions</h2>
-                  <JobsList items={jobItems} />
-                </>
-              )}
+              <div className={'d-none d-sm-block'}>
+                <h2 className={styles['title']}>Jobs Positions</h2>
+                <JobsList items={jobItems} />
+              </div>
             </div>
           </div>
         </Container>

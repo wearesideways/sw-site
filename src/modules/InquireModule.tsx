@@ -35,7 +35,7 @@ export default function InquireModule() {
               )}
             >
               <Button
-                className={classNames('d-inline-block d-sm-none ', styles['contact-us-btn'])}
+                className={classNames('d-inline-block d-sm-none', styles['contact-us-btn'])}
                 onClick={() => setShowModal(true)}
               >
                 Contact Us
