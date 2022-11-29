@@ -35,6 +35,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha-v3": "^1.10.0",
     "react-intersection-observer": "^9.4.0",
     "react-schemaorg": "^2.0.0",
     "react-twitter-embed": "^4.0.4",

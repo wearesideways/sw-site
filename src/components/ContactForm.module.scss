@@ -1,0 +1,69 @@
+@import '../style/lib';
+
+// stylelint-disable selector-pseudo-class-no-unknown, selector-max-compound-selectors, no-descending-specificity
+
+.root {
+  :global .was-validated {
+    .form-control:valid,
+    .form-control.is-valid {
+      background-image: none;
+    }
+
+    .form-check-input:valid,
+    .form-check-input.is-valid {
+      background-color: $black;
+      border-color: rgba($white, 0.25);
+    }
+
+    .form-check-input:valid ~ .form-check-label,
+    .form-check-input.is-valid ~ .form-check-label {
+      color: $white;
+    }
+
+    .form-select:valid:not([multiple]):not([size]),
+    .form-select:valid:not([multiple])[size='1'],
+    .form-select.is-valid:not([multiple]):not([size]),
+    .form-select.is-valid:not([multiple])[size='1'] {
+      background-image: url('/images/arrow-down-white.svg');
+    }
+  }
+
+  :global .form-select {
+    background-image: url('/images/arrow-down-white.svg');
+  }
+
+  :global .form-label {
+    @include tr-tagline-1();
+
+    text-transform: uppercase;
+  }
+
+  :global .form-check-input {
+    border-radius: 0;
+
+    &:checked {
+      background-color: $black;
+      border-color: rgba($white, 0.25);
+    }
+  }
+}
+
+.submit-btn {
+  @include btn-button-large-full();
+}
+
+.row-controls {
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 22px;
+  }
+}
+
+.spacing-mobile {
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px;
+  }
+}
+
+.error-section {
+  color: $danger;
+}
