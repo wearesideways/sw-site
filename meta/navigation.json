@@ -3,17 +3,17 @@
     {
       "type": "page_link",
       "label": "Work",
-      "page": "module-catalog"
+      "page": "work"
+    },
+    {
+      "type": "page_link",
+      "label": "About",
+      "page": "about"
     },
     {
       "type": "page_link",
       "label": "Contact",
-      "page": "module-catalog"
-    },
-    {
-      "type": "page_link",
-      "label": "Contact",
-      "page": "module-catalog"
+      "page": "contact"
     },
     {
       "type": "external_link",

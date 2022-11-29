@@ -265,6 +265,12 @@ modules:
               - label: 'Label'
                 name: 'label'
                 widget: 'string'
+  - slug: inquire-module
+    name: InquireModule
+    label: Intro and Inquire Module
+  - slug: jobs-module
+    name: JobsModule
+    label: Intro and Jobs Module
   - slug: projects-module
     name: ProjectsModule
     label: Projects Grid

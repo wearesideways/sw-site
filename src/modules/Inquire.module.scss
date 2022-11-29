@@ -1,0 +1,71 @@
+@import '../style/lib';
+@import '../style/modules';
+
+.root {
+  @include module();
+  @include module-spacing-1();
+
+  width: 100%;
+}
+
+.columns-content {
+  position: relative;
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
+}
+
+.title {
+  @include tr-header-1();
+
+  margin: 0 0 15px;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 32px;
+  }
+}
+
+.description {
+  @include tr-header-2();
+
+  margin: 0 auto;
+
+  @include media-breakpoint-up(sm) {
+    text-align: left;
+  }
+}
+
+.column-content {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  margin: 0 auto 40px;
+
+  @include media-breakpoint-up(sm) {
+    max-width: none;
+    text-align: initial;
+  }
+}
+
+.first-column {
+  @include media-breakpoint-up(lg) {
+    width: 35%;
+    margin-right: 4%;
+  }
+}
+
+.second-column {
+  padding: 0;
+  list-style: none;
+
+  @include media-breakpoint-up(lg) {
+    width: 61%;
+    margin-top: 56px;
+    margin-bottom: 110px;
+  }
+}
+
+.contact-us-btn {
+  @include btn-button-black-caps();
+}
