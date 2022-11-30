@@ -28,6 +28,12 @@ type FilterBtnProps = {
   onClickFilter: (e: MouseEvent, category: string) => void
 }
 
+type FiltersListProps = {
+  sortFilters: string[]
+  currentFilter: string
+  onClickFilter: (e: MouseEvent, category: string) => void
+}
+
 const FilterButton = ({ categoryLabel, isSelected, onClickFilter }: FilterBtnProps) => {
   return (
     <button
@@ -38,6 +44,22 @@ const FilterButton = ({ categoryLabel, isSelected, onClickFilter }: FilterBtnPro
     >
       {categoryLabel}
     </button>
+  )
+}
+
+const FiltersList = ({ sortFilters, currentFilter, onClickFilter }: FiltersListProps) => {
+  return (
+    <ul className={styles['filters-container']}>
+      {sortFilters.map((elem, index) => (
+        <li className={styles['filters-item']} key={`filters-${index}`}>
+          <FilterButton
+            categoryLabel={elem}
+            isSelected={currentFilter === elem}
+            onClickFilter={onClickFilter}
+          />
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -61,20 +83,6 @@ export default function ProjectsModule({ projectsList, sortFilters }: ProjectsPr
       ? projectsList
       : projectsList.filter((el) => el.project.category === currentFilter)
   }
-
-  const filtersContent = (
-    <ul className={styles['filters-container']}>
-      {['All', ...sortFilters]?.map((elem, index) => (
-        <li className={styles['filters-item']} key={`filters-${index}`}>
-          <FilterButton
-            categoryLabel={elem}
-            isSelected={elem === currentFilter}
-            onClickFilter={onClickFilter}
-          />
-        </li>
-      ))}
-    </ul>
-  )
 
   return (
     <section className={styles['projects']}>
@@ -106,10 +114,20 @@ export default function ProjectsModule({ projectsList, sortFilters }: ProjectsPr
         role="region"
         aria-labelledby={toggleId}
       >
-        {filtersContent}
+        <FiltersList
+          sortFilters={['All', ...sortFilters]}
+          currentFilter={currentFilter}
+          onClickFilter={onClickFilter}
+        />
       </div>
       <Container fluid={'md'} className={styles['projects-container']}>
-        <Row className={styles['filters-row']}>{filtersContent}</Row>
+        <Row className={styles['filters-row']}>
+          <FiltersList
+            sortFilters={['All', ...sortFilters]}
+            currentFilter={currentFilter}
+            onClickFilter={onClickFilter}
+          />
+        </Row>
         <Row className={styles['projects-row']}>
           {filteredProjects()?.map(({ project }, index) => {
             return (
