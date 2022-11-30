@@ -1,4 +1,4 @@
-import React, { useId, useState, MouseEvent } from 'react'
+import React, { useId, useState, MouseEvent, useEffect } from 'react'
 import styles from './Projects.module.scss'
 import { MediaTypes } from '../lib/types'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -66,6 +66,7 @@ const FiltersList = ({ sortFilters, currentFilter, onClickFilter }: FiltersListP
 export default function ProjectsModule({ projectsList, sortFilters }: ProjectsProps) {
   const [currentFilter, setFilter] = useState('All')
   const [drawerIsExpanded, setDrawerExpanded] = useState(false)
+  const [filteredProjects, setFilteredProjects] = useState(projectsList)
   const toggleId = useId()
   const regionId = useId()
 
@@ -77,12 +78,14 @@ export default function ProjectsModule({ projectsList, sortFilters }: ProjectsPr
     setDrawerExpanded(!drawerIsExpanded)
   }
 
-  // TODO label comparison, change if required
-  function filteredProjects() {
-    return currentFilter === 'All'
-      ? projectsList
-      : projectsList.filter((el) => el.project.category === currentFilter)
-  }
+  useEffect(() => {
+    // TODO label comparison, change if required
+    const filtered =
+      currentFilter === 'All'
+        ? projectsList
+        : projectsList.filter((el) => el.project.category === currentFilter)
+    setFilteredProjects(filtered)
+  })
 
   return (
     <section className={styles['projects']}>
@@ -129,7 +132,7 @@ export default function ProjectsModule({ projectsList, sortFilters }: ProjectsPr
           />
         </Row>
         <Row className={styles['projects-row']}>
-          {filteredProjects()?.map(({ project }, index) => {
+          {filteredProjects.map(({ project }, index) => {
             return (
               <Col key={`project-fig-${index}`} md={6} lg={4}>
                 <figure className={styles['media-figure']}>
