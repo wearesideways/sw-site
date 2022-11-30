@@ -271,3 +271,42 @@ modules:
   - slug: jobs-module
     name: JobsModule
     label: Intro and Jobs Module
+  - slug: projects-module
+    name: ProjectsModule
+    label: Projects Grid
+    fields:
+      - label: List of Projects
+        name: projectsList
+        widget: list
+        min: 1
+        fields:
+          - label: Project
+            name: project
+            widget: object
+            collapsed: true
+            fields:
+              - label: Headline
+                name: headline
+                widget: string
+              - label: Description
+                name: description
+                widget: string
+              - label: Category
+                name: category
+                widget: string
+              - label: Media
+                name: media
+                widget: object
+                collapsed: true
+                fields:
+                  - label: Image
+                    name: img
+                    widget: image
+                    allow_multiple: false
+                  - label: Alternative Text
+                    name: alt
+                    widget: string
+      - label: sortFilters
+        name: Sort Filters
+        widget: list
+        min: 1

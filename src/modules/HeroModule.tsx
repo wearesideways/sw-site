@@ -86,12 +86,7 @@ export default function HeroModule({ slides, showSidewaysLogo, isFullHeight }: P
                   ? quoteContent(`slide-${index}`, slide.quoteText, slide.quoteAuthor)
                   : copyContent(slide.headline, slide.overlayText)}
 
-                <Media
-                  key={`slide-media-${index}`}
-                  {...slide.media}
-                  presentational={false}
-                  className={styles['slide-media']}
-                />
+                <Media {...slide.media} presentational={false} className={styles['slide-media']} />
               </figure>
             </SwiperSlide>
           )
