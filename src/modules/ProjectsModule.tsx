@@ -6,8 +6,8 @@ import OverflownHeadline from '../components/OverflownHeadline'
 import Media from '../components/Media'
 import classNames from 'classnames'
 
-type Props = {
-  projectsList?: {
+type ProjectsProps = {
+  projectsList: {
     project: {
       headline?: string
       description?: string
@@ -19,10 +19,29 @@ type Props = {
       }
     }
   }[]
-  sortFilters?: string[]
+  sortFilters: string[]
 }
 
-export default function ProjectsModule({ projectsList, sortFilters }: Props) {
+type FilterBtnProps = {
+  categoryLabel: string
+  isSelected: boolean
+  onClickFilter: (e: MouseEvent, category: string) => void
+}
+
+const FilterButton = ({ categoryLabel, isSelected, onClickFilter }: FilterBtnProps) => {
+  return (
+    <button
+      type="button"
+      className={styles['filter-btn']}
+      aria-selected={isSelected}
+      onClick={(e) => onClickFilter(e, categoryLabel)}
+    >
+      {categoryLabel}
+    </button>
+  )
+}
+
+export default function ProjectsModule({ projectsList, sortFilters }: ProjectsProps) {
   const [currentFilter, setFilter] = useState('All')
   const [drawerIsExpanded, setDrawerExpanded] = useState(false)
   const toggleId = useId()
@@ -36,33 +55,22 @@ export default function ProjectsModule({ projectsList, sortFilters }: Props) {
     setDrawerExpanded(!drawerIsExpanded)
   }
 
-  function filterButton(categoryLabel: string) {
-    return (
-      <button
-        type="button"
-        className={styles['filter-btn']}
-        aria-selected={categoryLabel === currentFilter}
-        onClick={(e) => onClickFilter(e, categoryLabel)}
-      >
-        {categoryLabel}
-      </button>
-    )
-  }
-
   // TODO label comparison, change if required
   function filteredProjects() {
     return currentFilter === 'All'
       ? projectsList
-      : projectsList?.filter((el) => el.project.category === currentFilter)
+      : projectsList.filter((el) => el.project.category === currentFilter)
   }
 
   const filtersContent = (
     <ul className={styles['filters-container']}>
-      <li className={styles['filters-item']}>{filterButton('All')}</li>
-
-      {sortFilters?.map((elem, index) => (
+      {['All', ...sortFilters]?.map((elem, index) => (
         <li className={styles['filters-item']} key={`filters-${index}`}>
-          {filterButton(elem)}
+          <FilterButton
+            categoryLabel={elem}
+            isSelected={elem === currentFilter}
+            onClickFilter={onClickFilter}
+          />
         </li>
       ))}
     </ul>
